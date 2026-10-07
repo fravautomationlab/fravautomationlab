@@ -50,7 +50,7 @@ export default defineConfig(({mode}) => {
     process.env.VITE_SITE_URL ||
     process.env.VERCEL_PROJECT_PRODUCTION_URL ||
     (process.env.VERCEL_ENV === 'production' ? process.env.VERCEL_URL : '') ||
-    'http://localhost:3000';
+    'https://www.fravautomationlab.com';
   const siteUrl = new URL(
     rawSiteUrl.startsWith('http') ? rawSiteUrl : `https://${rawSiteUrl}`
   ).origin;
