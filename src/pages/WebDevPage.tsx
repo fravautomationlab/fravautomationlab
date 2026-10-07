@@ -5,6 +5,7 @@ import { FravPageId } from '../types';
 import { MagneticButton } from '../components/motion/MagneticButton';
 import { SplitReveal } from '../components/motion/SplitReveal';
 import { TiltCanvas } from '../components/motion/TiltCanvas';
+import { useTheme } from '../context/ThemeContext';
 
 interface WebDevPageProps {
   onNavigate: (page: FravPageId) => void;
@@ -147,6 +148,8 @@ const WebProjectSceneItem: React.FC<WebProjectSceneItemProps> = ({ project, inde
 };
 
 export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick }) => {
+  const { theme } = useTheme();
+  const isLightTheme = theme === 'light';
   const [hoveredCapability, setHoveredCapability] = useState<number | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
@@ -717,35 +720,37 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
                   key={step.step}
                   onClick={() => setActiveProcessStage(idx)}
                   className={`p-8 sm:p-10 lg:p-12 rounded-3xl border transition-all duration-500 cursor-pointer flex flex-col justify-between min-h-[480px] sm:min-h-[520px] lg:min-h-[560px] group ${
-                    isActive
-                      ? 'bg-neutral-900 border-white/40 shadow-2xl scale-[1.01]'
-                      : 'bg-neutral-950/70 border-white/10 hover:border-white/30 hover:bg-neutral-900/50 hover:-translate-y-1'
+                    isLightTheme
+                      ? 'bg-white border-black/10 hover:border-black/20 hover:bg-white'
+                      : isActive
+                        ? 'bg-neutral-900 border-white/40 shadow-2xl scale-[1.01]'
+                        : 'bg-neutral-950/70 border-white/10 hover:border-white/30 hover:bg-neutral-900/50 hover:-translate-y-1'
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between text-xs font-sans mb-8 sm:mb-10">
-                      <span className={`text-sm font-bold tracking-widest ${isActive ? 'text-[#FF4F38]' : 'text-neutral-400 group-hover:text-white transition-colors'}`}>
+                      <span className={`text-sm font-bold tracking-widest ${isActive ? 'text-[#FF4F38]' : isLightTheme ? 'text-neutral-600' : 'text-neutral-400 group-hover:text-white transition-colors'}`}>
                         {step.step}
                       </span>
-                      <span className="text-xs font-sans text-neutral-400 uppercase tracking-widest">
+                      <span className={`text-xs font-sans uppercase tracking-widest ${isLightTheme ? 'text-neutral-600' : 'text-neutral-400'}`}>
                         {step.duration}
                       </span>
                     </div>
 
-                    <h3 className="text-3xl sm:text-4xl lg:text-4xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white mb-3 group-hover:text-[#FF4F38] transition-colors">
+                    <h3 className={`text-3xl sm:text-4xl lg:text-4xl font-black font-['Syne',sans-serif] uppercase tracking-tight mb-3 group-hover:text-[#FF4F38] transition-colors ${isLightTheme ? 'text-neutral-900' : 'text-white'}`}>
                       {step.title}
                     </h3>
-                    <p className="text-xs sm:text-sm font-sans text-neutral-400 uppercase tracking-wider mb-8 sm:mb-12 leading-relaxed">
+                    <p className={`text-xs sm:text-sm font-sans uppercase tracking-wider mb-8 sm:mb-12 leading-relaxed ${isLightTheme ? 'text-neutral-600' : 'text-neutral-400'}`}>
                       {step.subtitle}
                     </p>
                   </div>
 
-                  <div className="pt-6 sm:pt-8 border-t border-white/10 space-y-3.5">
-                    <span className="text-[11px] font-sans text-neutral-500 uppercase tracking-widest block font-semibold mb-2">
+                  <div className={`pt-6 sm:pt-8 border-t space-y-3.5 ${isLightTheme ? 'border-black/10' : 'border-white/10'}`}>
+                    <span className={`text-[11px] font-sans uppercase tracking-widest block font-semibold mb-2 ${isLightTheme ? 'text-neutral-600' : 'text-neutral-500'}`}>
                       KEY DELIVERABLES:
                     </span>
                     {step.deliverables.map((item) => (
-                      <div key={item} className="flex items-center gap-3 text-xs sm:text-sm font-sans text-neutral-300 py-0.5">
+                      <div key={item} className={`flex items-center gap-3 text-xs sm:text-sm font-sans py-0.5 ${isLightTheme ? 'text-neutral-700' : 'text-neutral-300'}`}>
                         <CheckCircle2 className="w-4 h-4 text-[#FF4F38] shrink-0" />
                         <span className="leading-snug">{item}</span>
                       </div>
