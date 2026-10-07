@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import {readFile, writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {defineConfig, loadEnv} from 'vite';
+import {defineConfig} from 'vite';
 
 const pageMetadata = [
   {
@@ -43,17 +43,8 @@ const updateMeta = (html: string, attribute: 'name' | 'property', key: string, v
     : html.replace('</head>', `  ${tag}\n  </head>`);
 };
 
-export default defineConfig(({mode}) => {
-  const env = loadEnv(mode, process.cwd(), '');
-  const rawSiteUrl =
-    env.VITE_SITE_URL ||
-    process.env.VITE_SITE_URL ||
-    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-    (process.env.VERCEL_ENV === 'production' ? process.env.VERCEL_URL : '') ||
-    'https://www.fravautomationlab.com';
-  const siteUrl = new URL(
-    rawSiteUrl.startsWith('http') ? rawSiteUrl : `https://${rawSiteUrl}`
-  ).origin;
+export default defineConfig(() => {
+  const siteUrl = 'https://www.fravautomationlab.com';
   const socialImage = `${siteUrl}/images/ai_automation_hero_1791238819833.jpg`;
   const seoFiles = {
     robots: `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`,
