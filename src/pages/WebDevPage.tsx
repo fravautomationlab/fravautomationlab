@@ -67,7 +67,7 @@ const WebProjectSceneItem: React.FC<WebProjectSceneItemProps> = ({ project, inde
       className="relative w-full group bg-[#0D0D0D] rounded-3xl p-4 sm:p-8 md:p-10 border border-white/20 hover:border-white/40 transition-colors duration-500 shadow-[0_-30px_70px_rgba(0,0,0,0.98)] mb-24 sm:mb-36 last:mb-6"
     >
       {/* Viewport Scene Visual Container with scroll-linked scaling & cursor parallax */}
-      <div className="relative w-full h-[45vh] sm:h-[58vh] lg:h-[68vh] rounded-2xl overflow-hidden bg-neutral-900 border border-white/10">
+      <div className="relative w-full h-[40vh] sm:h-[46vh] lg:h-[54vh] rounded-2xl overflow-hidden bg-neutral-900 border border-white/10">
         <motion.div
           style={{
             scale: imageScale,
