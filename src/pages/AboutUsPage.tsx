@@ -200,6 +200,8 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
           <img
             src="./images/frav_studio_space_1791240745620.jpg"
             alt="FRAV Studio Space Architecture"
+            width={1376}
+            height={768}
             className="w-full h-full object-cover object-center filter brightness-[0.55] contrast-110"
             loading="eager"
           />
@@ -531,31 +533,39 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
               <div className="lg:col-span-7">
                 {submitted ? (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="p-10 rounded-2xl bg-neutral-900/80 border border-emerald-500/30 text-center flex flex-col items-center justify-center py-16"
+                    className="min-h-[360px] p-8 sm:p-12 rounded-2xl bg-neutral-900/80 border border-white/10 flex flex-col justify-center"
                   >
-                    <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-6">
-                      <CheckCircle2 className="w-8 h-8" />
+                    <div className="w-12 h-12 rounded-full bg-[#FF4F38]/10 text-[#FF4F38] flex items-center justify-center mb-8">
+                      <CheckCircle2 className="w-6 h-6" />
                     </div>
-                    <h3 className="text-3xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white mb-2">
-                      TRANSMISSION RECEIVED
-                    </h3>
-                    <p className="text-sm font-sans text-neutral-400 max-w-md mb-6">
-                      Thank you, {formData.name}. Your project brief has been encrypted and routed directly to our lead engineering team. We will review your specifications and contact you at {formData.email}.
-                    </p>
-                    <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest block mb-8">
-                      TRANSMISSION REF: FRAV-{Math.floor(100000 + Math.random() * 900000)}
+                    <span className="text-xs font-sans text-[#FF4F38] uppercase tracking-[0.2em] font-bold mb-3">
+                      INQUIRY
                     </span>
-                    <MagneticButton
+                    <h3 className="text-3xl sm:text-4xl font-black font-['Syne',sans-serif] tracking-tight text-white mb-4">
+                      Thank you, {formData.name}.
+                    </h3>
+                    <p className="text-sm font-sans text-neutral-400 max-w-md mb-8 leading-relaxed">
+                      This form isn&apos;t connected yet. Email your brief to{' '}
+                      <a
+                        href="mailto:studio@fravlab.com"
+                        className="text-white underline decoration-white/30 underline-offset-4 hover:text-[#FF4F38] transition-colors"
+                      >
+                        studio@fravlab.com
+                      </a>
+                      .
+                    </p>
+                    <button
+                      type="button"
                       onClick={() => {
                         setSubmitted(false);
                         setFormData({ name: '', email: '', company: '', timeline: 'Q2 / Q3 2026', message: '' });
                       }}
-                      className="px-6 py-2.5 rounded-full border border-white/20 text-xs font-sans uppercase tracking-wider text-neutral-300 hover:text-white hover:border-white transition-all"
+                      className="self-start px-5 py-3 rounded-full border border-white/20 text-xs font-sans uppercase tracking-wider text-neutral-300 hover:text-white hover:border-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4F38]"
                     >
-                      SEND ANOTHER INQUIRY
-                    </MagneticButton>
+                      BACK TO FORM
+                    </button>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -570,7 +580,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                             key={item}
                             type="button"
                             onClick={() => setDisciplineFocus(item)}
-                            className={`py-3 px-2 rounded-xl text-xs font-sans uppercase tracking-wider transition-all w-full ${
+                            className={`py-3 px-1 sm:px-2 rounded-xl text-[9px] sm:text-xs font-sans uppercase tracking-normal sm:tracking-wider transition-all w-full ${
                               disciplineFocus === item
                                 ? 'bg-white text-black font-bold shadow-lg'
                                 : 'bg-neutral-900 border border-white/10 text-neutral-400 hover:text-white'

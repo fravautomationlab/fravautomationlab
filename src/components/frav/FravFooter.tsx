@@ -209,7 +209,7 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
               <span className="hidden md:inline text-neutral-400">TYPESCRIPT & TAILWIND ARCHITECTURE</span>
             </div>
 
-            <div className="flex items-center gap-6">
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3 sm:gap-x-6">
               <button
                 type="button"
                 onClick={() =>

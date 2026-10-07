@@ -34,6 +34,8 @@ export const FravCta: React.FC<FravCtaProps> = ({ onContactClick }) => {
         <img
           src="./images/frav_hero_1791239384109.jpg"
           alt="FRAV Monolith Visual"
+          width={1376}
+          height={768}
           className="w-full h-full object-cover object-center filter brightness-[0.4] contrast-125"
           loading="lazy"
           referrerPolicy="no-referrer"

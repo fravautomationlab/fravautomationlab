@@ -125,7 +125,7 @@ export const FravEntranceLoader: React.FC<FravEntranceLoaderProps> = ({ onComple
                 initial={{ y: 90, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className="font-['Syne',sans-serif] font-black uppercase text-7xl sm:text-9xl md:text-[11rem] lg:text-[13rem] tracking-tighter leading-none text-white"
+                className="font-['Syne',sans-serif] font-black uppercase text-[clamp(3rem,18vw,7rem)] sm:text-9xl md:text-[11rem] lg:text-[13rem] tracking-tighter leading-none text-white"
               >
                 FRAV
               </motion.h1>

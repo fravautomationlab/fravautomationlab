@@ -134,6 +134,8 @@ const WorkSceneItem: React.FC<WorkSceneItemProps> = ({ project, index, onClick }
           <img
             src={project.image}
             alt={project.title}
+            width={1376}
+            height={768}
             className="w-full h-full object-cover object-center filter brightness-[0.78] contrast-105 group-hover:brightness-90 transition-all duration-700"
             loading="lazy"
             referrerPolicy="no-referrer"

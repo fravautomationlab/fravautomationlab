@@ -1,5 +1,57 @@
 import React, { useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, useMotionValueEvent, useScroll, useTransform, type MotionValue } from 'motion/react';
+
+interface ProcessStepProps {
+  index: string;
+  title: string;
+  description: string;
+  highlight: MotionValue<number>;
+}
+
+const ProcessStep: React.FC<ProcessStepProps> = ({ index, title, description, highlight }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isScrollRevealed, setIsScrollRevealed] = useState(highlight.get() > 0.5);
+  const isRevealed = isHovered || isScrollRevealed;
+
+  useMotionValueEvent(highlight, 'change', (value) => {
+    setIsScrollRevealed(value > 0.5);
+  });
+
+  return (
+    <motion.div
+      style={{ opacity: highlight }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      className="flex items-baseline gap-6 sm:gap-10 transition-all duration-300"
+    >
+      <span className="text-lg sm:text-2xl lg:text-3xl font-sans text-neutral-500 font-bold">
+        {index}
+      </span>
+      <div>
+        <h3 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-['Syne',sans-serif] tracking-tighter uppercase text-white hover:text-[#FF4F38] transition-colors cursor-default">
+          {title}
+        </h3>
+        <div
+          className={`overflow-hidden transition-[max-height] duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] ${
+            isRevealed ? 'max-h-12 delay-100' : 'max-h-0 delay-0'
+          }`}
+        >
+          <motion.p
+            style={{
+              opacity: isRevealed ? 1 : 0,
+              y: isRevealed ? 0 : 8,
+            }}
+            className={`text-sm sm:text-base font-sans font-light text-neutral-400 leading-relaxed transition-[opacity,transform] duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] ${
+              isRevealed ? 'delay-100' : 'delay-0'
+            }`}
+          >
+            {description}
+          </motion.p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export const FravProcess: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -9,11 +61,11 @@ export const FravProcess: React.FC = () => {
   });
 
   const steps = [
-    { index: '01', title: 'DISCOVER' },
-    { index: '02', DESIGN: 'DESIGN', title: 'DESIGN' },
-    { index: '03', title: 'BUILD' },
-    { index: '04', title: 'LAUNCH' },
-    { index: '05', title: 'AUTOMATE' },
+    { index: '01', title: 'DISCOVER', description: 'Clarify goals, users, and the right scope.' },
+    { index: '02', title: 'DESIGN', description: 'Shape a clear visual and technical direction.' },
+    { index: '03', title: 'BUILD', description: 'Turn the plan into production-ready work.' },
+    { index: '04', title: 'LAUNCH', description: 'Test, refine, and ship with confidence.' },
+    { index: '05', title: 'AUTOMATE', description: 'Connect workflows and reduce repetitive work.' },
   ];
 
   // Each stage becomes dominant sequentially as visitor scrolls
@@ -50,18 +102,11 @@ export const FravProcess: React.FC = () => {
         {/* The 5 Steps Stack: One becomes dominant while others move away */}
         <div className="my-auto py-8 space-y-4 sm:space-y-6 max-w-5xl">
           {steps.map((step, idx) => (
-            <motion.div
+            <ProcessStep
               key={step.index}
-              style={{ opacity: highlights[idx] }}
-              className="flex items-baseline gap-6 sm:gap-10 transition-all duration-300"
-            >
-              <span className="text-lg sm:text-2xl lg:text-3xl font-sans text-neutral-500 font-bold">
-                {step.index}
-              </span>
-              <h3 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-['Syne',sans-serif] tracking-tighter uppercase text-white hover:text-[#FF4F38] transition-colors cursor-default">
-                {step.title}
-              </h3>
-            </motion.div>
+              {...step}
+              highlight={highlights[idx]}
+            />
           ))}
         </div>
 

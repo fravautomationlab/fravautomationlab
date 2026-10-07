@@ -62,6 +62,8 @@ export const FravWeb: React.FC<FravWebProps> = ({ onExplore }) => {
             <img
               src="./images/frav_web_canvas_1791239394889.jpg"
               alt="FRAV Web Canvas"
+              width={1376}
+              height={768}
               className="w-full h-full object-cover object-center filter brightness-[0.7] contrast-105"
               loading="lazy"
               referrerPolicy="no-referrer"
@@ -78,28 +80,28 @@ export const FravWeb: React.FC<FravWebProps> = ({ onExplore }) => {
         <div className="relative z-20 w-full flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 sm:gap-4 py-8">
           <motion.div style={{ opacity: word1Opacity }} className="transition-opacity">
             <span className="block text-[10px] font-sans text-neutral-500 mb-1">01</span>
-            <span className="text-3xl sm:text-5xl lg:text-7xl font-bold font-['Syne',sans-serif] tracking-tight">
+            <span className="text-[clamp(1.75rem,5vw,2rem)] sm:text-[clamp(2rem,4.5vw,3rem)] lg:text-[clamp(3rem,5vw,4.5rem)] xl:text-7xl font-bold font-['Syne',sans-serif] tracking-tight">
               DESIGN
             </span>
           </motion.div>
 
           <motion.div style={{ opacity: word2Opacity }} className="transition-opacity">
             <span className="block text-[10px] font-sans text-neutral-500 mb-1">02</span>
-            <span className="text-3xl sm:text-5xl lg:text-7xl font-bold font-['Syne',sans-serif] tracking-tight">
+            <span className="text-[clamp(1.75rem,5vw,2rem)] sm:text-[clamp(2rem,4.5vw,3rem)] lg:text-[clamp(3rem,5vw,4.5rem)] xl:text-7xl font-bold font-['Syne',sans-serif] tracking-tight">
               BUILD
             </span>
           </motion.div>
 
           <motion.div style={{ opacity: word3Opacity }} className="transition-opacity">
             <span className="block text-[10px] font-sans text-neutral-500 mb-1">03</span>
-            <span className="text-3xl sm:text-5xl lg:text-7xl font-bold font-['Syne',sans-serif] tracking-tight">
+            <span className="text-[clamp(1.75rem,5vw,2rem)] sm:text-[clamp(2rem,4.5vw,3rem)] lg:text-[clamp(3rem,5vw,4.5rem)] xl:text-7xl font-bold font-['Syne',sans-serif] tracking-tight">
               HOST
             </span>
           </motion.div>
 
           <motion.div style={{ opacity: word4Opacity }} className="transition-opacity flex flex-col items-start sm:items-end">
             <span className="block text-[10px] font-sans text-neutral-500 mb-1">04</span>
-            <span className="text-3xl sm:text-5xl lg:text-7xl font-bold font-['Syne',sans-serif] tracking-tight text-[#FF4F38] mb-2">
+            <span className="text-[clamp(1.75rem,5vw,2rem)] sm:text-[clamp(2rem,4.5vw,3rem)] lg:text-[clamp(3rem,5vw,4.5rem)] xl:text-7xl font-bold font-['Syne',sans-serif] tracking-tight text-[#FF4F38] mb-2">
               CARE
             </span>
             {onExplore && (

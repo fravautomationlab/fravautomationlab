@@ -16,23 +16,72 @@ import { AIAutomationPage } from './pages/AIAutomationPage';
 import { AboutUsPage } from './pages/AboutUsPage';
 import { FravPageId } from './types';
 
-export default function App() {
-  const normalizePage = (p: string): FravPageId => {
-    if (p === 'web' || p === 'web-development' || p === 'web-dev') return 'web-development';
-    if (p === 'automation' || p === 'ai-automation') return 'automation';
-    if (p === 'about' || p === 'about-us' || p === 'contact') return 'about-us';
-    return 'home';
+type CanonicalPageId = 'home' | 'web-development' | 'automation' | 'about-us';
+
+const pageSeo: Record<CanonicalPageId, { path: string; title: string; description: string }> = {
+  home: {
+    path: '/',
+    title: 'FRAV Automation Lab | Web Development & AI Automation',
+    description:
+      'FRAV Automation Lab is a technology studio creating premium websites, interactive digital experiences, AI agents, and business workflow automation.',
+  },
+  'web-development': {
+    path: '/web',
+    title: 'Web Development | FRAV Automation Lab',
+    description:
+      'FRAV designs and builds premium, responsive websites and interactive digital experiences, from visual direction through production-ready development.',
+  },
+  automation: {
+    path: '/automation',
+    title: 'AI Automation | FRAV Automation Lab',
+    description:
+      'FRAV creates AI agents, workflow automation, integrations, and custom AI systems shaped around real business processes.',
+  },
+  'about-us': {
+    path: '/about',
+    title: 'About FRAV Automation Lab | Web + AI',
+    description:
+      'FRAV Automation Lab is a two-person technology studio focused on premium web development and practical AI automation.',
+  },
+};
+
+const getPageFromLocation = (): CanonicalPageId => {
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  const pathPage: Record<string, CanonicalPageId> = {
+    '/': 'home',
+    '/web': 'web-development',
+    '/web-development': 'web-development',
+    '/web-dev': 'web-development',
+    '/automation': 'automation',
+    '/ai-automation': 'automation',
+    '/about': 'about-us',
+    '/about-us': 'about-us',
+    '/contact': 'about-us',
   };
 
-  const [currentPage, setCurrentPage] = useState<FravPageId>(() => {
-    if (typeof window !== 'undefined') {
-      const hash = window.location.hash.replace('#', '');
-      if (hash) {
-        return normalizePage(hash);
-      }
-    }
-    return 'home';
-  });
+  if (path !== '/') return pathPage[path] ?? 'home';
+  return normalizePage(window.location.hash.replace(/^#\/?/, ''));
+};
+
+const normalizePage = (page: string): CanonicalPageId => {
+  if (page === 'web' || page === 'web-development' || page === 'web-dev') return 'web-development';
+  if (page === 'automation' || page === 'ai-automation') return 'automation';
+  if (page === 'about' || page === 'about-us' || page === 'contact') return 'about-us';
+  return 'home';
+};
+
+const setMeta = (attribute: 'name' | 'property', key: string, content: string) => {
+  let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute(attribute, key);
+    document.head.appendChild(element);
+  }
+  element.content = content;
+};
+
+export default function App() {
+  const [currentPage, setCurrentPage] = useState<CanonicalPageId>(getPageFromLocation);
 
   const [contactOpen, setContactOpen] = useState(false);
   const [hasEntered, setHasEntered] = useState(false);
@@ -81,21 +130,69 @@ export default function App() {
     };
   }, []);
 
-  // Hash change synchronization for back/forward browser buttons
+  // Keep direct paths and legacy hash URLs in sync with browser navigation.
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '');
-      setCurrentPage(normalizePage(hash));
-    };
+    const syncPage = () => setCurrentPage(getPageFromLocation());
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', syncPage);
+    window.addEventListener('hashchange', syncPage);
+    return () => {
+      window.removeEventListener('popstate', syncPage);
+      window.removeEventListener('hashchange', syncPage);
+    };
   }, []);
+
+  useEffect(() => {
+    const seo = pageSeo[currentPage];
+    const configuredSiteUrl = __FRAV_SITE_URL__ || window.location.origin;
+    const siteUrl = configuredSiteUrl.replace(/\/+$/, '');
+    const canonicalUrl = `${siteUrl}${seo.path}`;
+    const socialImage = `${siteUrl}/images/frav_hero_1791239384109.jpg`;
+
+    document.title = seo.title;
+    setMeta('name', 'description', seo.description);
+    setMeta('name', 'robots', 'index, follow');
+    setMeta('property', 'og:title', seo.title);
+    setMeta('property', 'og:description', seo.description);
+    setMeta('property', 'og:type', 'website');
+    setMeta('property', 'og:url', canonicalUrl);
+    setMeta('property', 'og:image', socialImage);
+    setMeta('property', 'og:site_name', 'FRAV Automation Lab');
+    setMeta('name', 'twitter:card', 'summary_large_image');
+    setMeta('name', 'twitter:title', seo.title);
+    setMeta('name', 'twitter:description', seo.description);
+    setMeta('name', 'twitter:image', socialImage);
+
+    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = canonicalUrl;
+
+    let structuredData = document.head.querySelector<HTMLScriptElement>('#frav-organization-schema');
+    if (!structuredData) {
+      structuredData = document.createElement('script');
+      structuredData.id = 'frav-organization-schema';
+      structuredData.type = 'application/ld+json';
+      document.head.appendChild(structuredData);
+    }
+    structuredData.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'FRAV Automation Lab',
+      url: siteUrl,
+      logo: `${siteUrl}/frav-mark.svg`,
+      description: pageSeo.home.description,
+      email: 'studio@fravlab.com',
+    });
+  }, [currentPage]);
 
   const navigateToPage = (page: FravPageId, targetElementId?: string) => {
     const canonicalPage = normalizePage(page);
     setCurrentPage(canonicalPage);
-    window.location.hash = canonicalPage === 'home' ? '' : canonicalPage;
+    window.history.pushState({}, '', pageSeo[canonicalPage].path);
 
     if (lenisRef.current) {
       if (targetElementId) {

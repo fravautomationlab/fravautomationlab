@@ -1,0 +1,13 @@
+{
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/web", "destination": "/web.html" },
+    { "source": "/web-development", "destination": "/web.html" },
+    { "source": "/web-dev", "destination": "/web.html" },
+    { "source": "/automation", "destination": "/automation.html" },
+    { "source": "/ai-automation", "destination": "/automation.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/about-us", "destination": "/about.html" },
+    { "source": "/contact", "destination": "/about.html" }
+  ]
+}

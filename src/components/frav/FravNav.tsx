@@ -35,6 +35,20 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
     onNavigate(page);
   };
 
+  const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, page: FravPageId) => {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+    event.preventDefault();
+    handleSelect(page);
+  };
+
   const isLinkActive = (page: FravPageId) => {
     if (currentPage === page) return true;
     if ((page === 'web' || page === 'web-development') && (currentPage === 'web' || currentPage === 'web-development')) return true;
@@ -58,26 +72,26 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
       >
         <div className="w-full px-6 sm:px-12 md:px-16 lg:px-24 flex items-center justify-between">
           {/* Brand: FRAV */}
-          <button
-            type="button"
-            onClick={() => handleSelect('home')}
+          <a
+            href="/"
+            onClick={(event) => handleLinkClick(event, 'home')}
             className="text-xl sm:text-2xl font-black tracking-tighter text-white font-['Syne',sans-serif] uppercase hover:opacity-80 transition-opacity cursor-pointer text-left"
           >
             FRAV
-          </button>
+          </a>
 
           {/* Center/Right: WEB DEVELOPMENT / AUTOMATION / ABOUT US */}
           <nav
             aria-label="Studio Navigation"
-            className="hidden md:flex items-center gap-8 text-xs font-sans tracking-widest text-neutral-400 uppercase"
+            className="hidden lg:flex items-center gap-8 text-xs font-sans tracking-widest text-neutral-400 uppercase"
           >
             {navLinks.map((link, idx) => {
               const isActive = isLinkActive(link.page);
               return (
                 <React.Fragment key={link.page}>
-                  <button
-                    type="button"
-                    onClick={() => handleSelect(link.page)}
+                  <a
+                    href={link.page === 'web-development' ? '/web' : link.page === 'automation' ? '/automation' : '/about'}
+                    onClick={(event) => handleLinkClick(event, link.page)}
                     className={`relative py-1 transition-colors cursor-pointer ${
                       isActive ? 'text-white font-bold' : 'hover:text-white'
                     }`}
@@ -90,7 +104,7 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
                         transition={{ duration: 0.3 }}
                       />
                     )}
-                  </button>
+                  </a>
                   {idx < navLinks.length - 1 && <span className="text-neutral-700">/</span>}
                 </React.Fragment>
               );
@@ -98,7 +112,7 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
           </nav>
 
           {/* Action: THEME TOGGLE + CALL US + CONTACT US */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <button
               type="button"
               onClick={toggleTheme}
@@ -131,7 +145,7 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
           </div>
 
           {/* Mobile actions: theme toggle + quick call + hamburger */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-2">
             <button
               type="button"
               onClick={toggleTheme}
@@ -170,37 +184,37 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-[#0A0A0A] flex flex-col justify-between p-8 pt-28 md:hidden"
+            className="fixed inset-0 z-40 bg-[#0A0A0A] flex flex-col justify-between p-8 pt-28 lg:hidden"
           >
             <div className="flex flex-col gap-6 text-xl sm:text-2xl font-bold font-['Syne',sans-serif] text-white">
-              <button
-                type="button"
-                onClick={() => handleSelect('home')}
+              <a
+                href="/"
+                onClick={(event) => handleLinkClick(event, 'home')}
                 className={`text-left transition-colors ${currentPage === 'home' ? 'text-[#FF4F38]' : 'hover:text-neutral-400'}`}
               >
                 HOME
-              </button>
-              <button
-                type="button"
-                onClick={() => handleSelect('web-development')}
+              </a>
+              <a
+                href="/web"
+                onClick={(event) => handleLinkClick(event, 'web-development')}
                 className={`text-left transition-colors ${isLinkActive('web-development') ? 'text-[#FF4F38]' : 'hover:text-neutral-400'}`}
               >
                 WEB DEVELOPMENT
-              </button>
-              <button
-                type="button"
-                onClick={() => handleSelect('automation')}
+              </a>
+              <a
+                href="/automation"
+                onClick={(event) => handleLinkClick(event, 'automation')}
                 className={`text-left transition-colors ${isLinkActive('automation') ? 'text-[#FF4F38]' : 'hover:text-neutral-400'}`}
               >
                 AUTOMATION
-              </button>
-              <button
-                type="button"
-                onClick={() => handleSelect('about-us')}
+              </a>
+              <a
+                href="/about"
+                onClick={(event) => handleLinkClick(event, 'about-us')}
                 className={`text-left transition-colors ${isLinkActive('about-us') ? 'text-[#FF4F38]' : 'hover:text-neutral-400'}`}
               >
                 ABOUT US
-              </button>
+              </a>
               <div className="pt-4 border-t border-white/10 flex flex-col gap-4">
                 <button
                   type="button"

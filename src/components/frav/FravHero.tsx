@@ -48,6 +48,8 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
           transition={{ duration: 1.6, ease: fravEase }}
           src="./images/frav_hero_1791239384109.jpg"
           alt="FRAV Architecture"
+          width={1376}
+          height={768}
           className="w-full h-full object-cover object-center filter brightness-[0.72] contrast-110"
           loading="eager"
           referrerPolicy="no-referrer"
@@ -71,7 +73,7 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.2, ease: fravEase }}
-          className="w-full font-['Syne',sans-serif] font-black uppercase text-center tracking-tighter leading-[0.82] text-7xl sm:text-9xl md:text-[13rem] lg:text-[17rem] xl:text-[22rem] text-white"
+          className="w-full font-['Syne',sans-serif] font-black uppercase text-center tracking-tighter leading-[0.82] text-[clamp(3rem,18vw,7rem)] sm:text-9xl md:text-[clamp(8rem,18vw,13rem)] lg:text-[clamp(10rem,17vw,17rem)] xl:text-[22rem] text-white"
         >
           FRAV
         </motion.h1>
@@ -93,14 +95,14 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.6, ease: fravEase }}
-        className="relative z-10 w-full flex items-center justify-between pt-4 border-t border-white/10"
+        className="relative z-10 w-full flex flex-wrap items-center justify-between gap-x-2 gap-y-2 pt-4 border-t border-white/10"
       >
         {/* Actions: CONTACT US + CALL US */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1 sm:gap-3">
           <button
             type="button"
             onClick={onStartClick}
-            className="text-xs sm:text-sm font-sans tracking-[0.25em] text-white uppercase px-6 py-2.5 rounded-full border border-white/30 hover:border-white hover:bg-white hover:text-black transition-all cursor-pointer active:scale-95 flex items-center gap-2"
+            className="text-[11px] sm:text-sm font-sans tracking-[0.12em] sm:tracking-[0.25em] text-white uppercase px-3 sm:px-6 py-2.5 rounded-full border border-white/30 hover:border-white hover:bg-white hover:text-black transition-all cursor-pointer active:scale-95 flex items-center gap-2"
           >
             <span>CONTACT US</span>
             <span>→</span>
@@ -108,7 +110,7 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
 
           <a
             href="tel:+41442114890"
-            className="text-xs sm:text-sm font-sans tracking-wider text-white uppercase px-4 py-2.5 rounded-full border border-white/20 hover:border-white hover:bg-white/10 transition-all cursor-pointer flex items-center gap-2"
+            className="text-[11px] sm:text-sm font-sans tracking-wider text-white uppercase px-2.5 sm:px-4 py-2.5 rounded-full border border-white/20 hover:border-white hover:bg-white/10 transition-all cursor-pointer flex items-center gap-2"
             aria-label="Call studio"
           >
             <Phone className="w-3.5 h-3.5 text-[#FF4F38]" />
@@ -125,7 +127,7 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
         <button
           type="button"
           onClick={scrollDown}
-          className="p-2 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+          className="ml-auto shrink-0 p-1 sm:p-2 text-neutral-400 hover:text-white transition-colors cursor-pointer"
           aria-label="Scroll to Section 01 Web"
         >
           <ArrowDown className="w-4 h-4 animate-bounce" />

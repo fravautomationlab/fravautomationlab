@@ -67,12 +67,14 @@ const AutomationStackCard: React.FC<AutomationStackCardProps> = ({ item, index, 
         <img
           src={item.image}
           alt={item.title}
+          width={1376}
+          height={768}
           className="w-full h-full object-cover object-center filter brightness-[0.72] contrast-110 group-hover:scale-102 group-hover:brightness-90 transition-all duration-700"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none" />
 
-        <div className="light-image-overlay absolute bottom-6 left-6 sm:bottom-12 sm:left-12 z-20 max-w-3xl pointer-events-none">
+        <div className="light-image-overlay absolute bottom-6 left-6 right-6 sm:bottom-12 sm:left-12 sm:right-12 z-20 max-w-3xl pointer-events-none">
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white mb-3 group-hover:text-[#FF4F38] transition-colors">
             {item.title}
           </h3>
@@ -241,6 +243,8 @@ export const AIAutomationPage: React.FC<AutomationPageProps> = ({ onNavigate, on
           <img
             src="./images/frav_automation_core_1791240760315.jpg"
             alt="FRAV Automation Abstract System"
+            width={1376}
+            height={768}
             className="w-full h-full object-cover object-center filter brightness-[0.5] contrast-125"
             loading="eager"
           />
@@ -519,11 +523,11 @@ export const AIAutomationPage: React.FC<AutomationPageProps> = ({ onNavigate, on
               transition={{ duration: 0.8, delay: idx * 0.12, ease: fravEase }}
               className="flex flex-col items-start"
             >
-              <div className="flex items-baseline gap-6 sm:gap-10 mb-2">
+              <div className="flex flex-wrap items-baseline gap-x-4 sm:gap-x-10 gap-y-1 mb-2">
                 <span className="text-xs sm:text-sm font-sans text-neutral-500 font-bold">
                   0{idx + 1}
                 </span>
-                <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white hover:text-[#FF4F38] transition-colors">
+                <span className="text-[clamp(1.25rem,7vw,4.5rem)] sm:text-5xl md:text-[clamp(3.5rem,7vw,6rem)] lg:text-7xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white hover:text-[#FF4F38] transition-colors">
                   {step.word}
                 </span>
               </div>

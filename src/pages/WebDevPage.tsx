@@ -21,13 +21,13 @@ interface WebProjectSceneItemProps {
     techStack: string[];
     metrics: string;
     image: string;
+    website?: string;
   };
   index: number;
   total: number;
-  onStartClick?: () => void;
 }
 
-const WebProjectSceneItem: React.FC<WebProjectSceneItemProps> = ({ project, index, total, onStartClick }) => {
+const WebProjectSceneItem: React.FC<WebProjectSceneItemProps> = ({ project, index, total }) => {
   const sceneRef = useRef<HTMLDivElement>(null);
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
 
@@ -63,23 +63,8 @@ const WebProjectSceneItem: React.FC<WebProjectSceneItemProps> = ({ project, inde
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={() => setMouseOffset({ x: 0, y: 0 })}
-      onClick={onStartClick}
-      className="relative w-full group cursor-pointer bg-[#0D0D0D] rounded-3xl p-6 sm:p-10 md:p-12 border border-white/20 hover:border-white/40 transition-colors duration-500 shadow-[0_-30px_70px_rgba(0,0,0,0.98)] mb-24 sm:mb-36 last:mb-6"
+      className="relative w-full group bg-[#0D0D0D] rounded-3xl p-4 sm:p-8 md:p-10 border border-white/20 hover:border-white/40 transition-colors duration-500 shadow-[0_-30px_70px_rgba(0,0,0,0.98)] mb-24 sm:mb-36 last:mb-6"
     >
-      {/* Scene Meta Header */}
-      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-4 mb-6 border-b border-white/10 text-xs font-sans tracking-widest gap-2">
-        <div className="flex items-baseline gap-4">
-          <span className="text-[#FF4F38] font-bold text-sm">{project.num}</span>
-          <span className="text-neutral-600">/</span>
-          <span className="text-neutral-300 uppercase font-semibold">{project.meta}</span>
-        </div>
-        <div className="flex items-center gap-4 text-neutral-400">
-          <span className="text-white font-bold">{project.metrics}</span>
-          <span>·</span>
-          <span>{project.year}</span>
-        </div>
-      </div>
-
       {/* Viewport Scene Visual Container with scroll-linked scaling & cursor parallax */}
       <div className="relative w-full h-[45vh] sm:h-[58vh] lg:h-[68vh] rounded-2xl overflow-hidden bg-neutral-900 border border-white/10">
         <motion.div
@@ -93,38 +78,69 @@ const WebProjectSceneItem: React.FC<WebProjectSceneItemProps> = ({ project, inde
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover object-center filter brightness-[0.78] contrast-105 group-hover:brightness-90 transition-all duration-700"
+            width={1376}
+            height={768}
+            className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
             loading="lazy"
             referrerPolicy="no-referrer"
           />
-          {/* Subtle gradient vignette */}
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none"
-            aria-hidden="true"
-          />
         </motion.div>
+      </div>
 
-        <div className="light-image-overlay absolute bottom-6 left-6 sm:bottom-10 sm:left-10 right-6 sm:right-10 z-20 flex flex-col md:flex-row md:items-end justify-between gap-4 pointer-events-none">
-          <div>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white mb-2 group-hover:text-[#FF4F38] transition-colors">
+      <div className="pt-6 sm:pt-8">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2 text-[11px] font-sans tracking-widest uppercase text-neutral-400">
+              <span className="text-[#FF4F38] font-bold">{project.num}</span>
+              <span className="text-neutral-600">/</span>
+              <span>{project.meta}</span>
+              <span className="text-neutral-600">·</span>
+              <span>{project.year}</span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white mb-2 group-hover:text-[#FF4F38] transition-colors">
               {project.title}
             </h3>
-            <p className="text-xs sm:text-sm text-neutral-300 font-sans max-w-xl leading-relaxed">
+            <p className="text-sm sm:text-base text-neutral-300 font-sans max-w-2xl leading-relaxed">
               {project.description}
             </p>
+            <div className="flex flex-wrap items-center gap-2 mt-4">
+              {project.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1 rounded-full bg-white/5 text-[10px] sm:text-[11px] font-sans text-neutral-400 uppercase tracking-wider border border-white/10"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
-            {project.techStack.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[11px] font-sans text-neutral-300 uppercase tracking-wider border border-white/15"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+          {project.website ? (
+            <a
+              href={project.website}
+              target="_blank"
+              rel="noreferrer"
+              className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3 text-xs font-sans font-bold uppercase tracking-widest text-white transition-colors hover:border-[#FF4F38] hover:text-[#FF4F38] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF4F38]"
+            >
+              VIEW WEBSITE
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              aria-label={`${project.title} website link pending`}
+              title="Website link pending"
+              className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-5 py-3 text-xs font-sans font-bold uppercase tracking-widest text-neutral-500 opacity-60 cursor-not-allowed"
+            >
+              VIEW WEBSITE
+              <ArrowUpRight className="h-4 w-4" />
+            </button>
+          )}
         </div>
+        <p className="mt-4 text-[11px] font-sans text-neutral-500 uppercase tracking-wider">
+          {project.metrics}
+        </p>
       </div>
     </motion.div>
   );
@@ -210,30 +226,55 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
       meta: 'WEB DEVELOPMENT / TYPESCRIPT / TAILWIND',
       title: 'VESPER ARCHITECTURE',
       year: '2025',
-      description: 'Responsive web platform built with semantic HTML, Tailwind CSS, and strict TypeScript.',
+      description: 'A responsive digital home for an architecture practice.',
       techStack: ['HTML5', 'Tailwind CSS', 'TypeScript', 'React'],
       metrics: 'Clean DOM · Fast Render',
       image: './images/frav_web_canvas_1791239394889.jpg',
+      website: undefined,
     },
     {
       num: '02',
       meta: 'WEB DEVELOPMENT / JAVASCRIPT / CSS',
       title: 'ATELIER KROMA',
       year: '2025',
-      description: 'Editorial web portfolio with modern CSS Grid layouts and smooth JavaScript navigation.',
+      description: 'An editorial portfolio with considered motion and layout.',
       techStack: ['JavaScript', 'CSS Grid', 'Tailwind CSS'],
       metrics: 'Mobile Responsive · Zero Layout Shift',
       image: './images/frav_work_editorial_1791239405268.jpg',
+      website: undefined,
     },
     {
       num: '03',
       meta: 'WEB DEVELOPMENT / FULL STACK / APIS',
       title: 'MONOLITH PROTOCOL',
       year: '2026',
-      description: 'Production web application connected to live APIs with clean component structure.',
+      description: 'A production application built around connected data.',
       techStack: ['TypeScript', 'Tailwind CSS', 'REST APIs'],
       metrics: 'Type-Safe · Edge Deployed',
       image: './images/web_dev_hero_1791238807505.jpg',
+      website: undefined,
+    },
+    {
+      num: '04',
+      meta: 'DIGITAL STUDIO / EDITORIAL',
+      title: 'NORTHLINE STUDIO',
+      year: '2026',
+      description: 'A refined portfolio for an independent architecture practice.',
+      techStack: ['React', 'Tailwind CSS', 'Responsive Design'],
+      metrics: 'Editorial Portfolio · Mobile First',
+      image: './images/frav_studio_space_1791240745620.jpg',
+      website: undefined,
+    },
+    {
+      num: '05',
+      meta: 'COMMERCE / DIGITAL EXPERIENCE',
+      title: 'KINFIELD GOODS',
+      year: '2026',
+      description: 'A considered storefront built for a modern homeware label.',
+      techStack: ['TypeScript', 'Commerce', 'Accessible UI'],
+      metrics: 'Commerce Experience · Performance Focused',
+      image: './images/frav_hero_1791239384109.jpg',
+      website: undefined,
     },
   ];
 
@@ -345,6 +386,8 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
           <img
             src="./images/web_dev_hero_1791238807505.jpg"
             alt="Developer workspace with code on a monitor"
+            width={1376}
+            height={768}
             className="w-full h-full object-cover object-center filter brightness-[0.6] contrast-110"
             loading="eager"
           />
@@ -382,7 +425,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
           <SplitReveal
             as="div"
             delay={0.15}
-            className="font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-neutral-300 break-words"
+            className="font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-[clamp(2rem,10vw,3rem)] sm:text-5xl md:text-[clamp(3.5rem,9vw,6rem)] lg:text-7xl xl:text-8xl text-neutral-300 break-words"
           >
             DEVELOPMENT
           </SplitReveal>
@@ -538,6 +581,8 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
             <img
               src={capabilities[hoveredCapability].image}
               alt={capabilities[hoveredCapability].title}
+              width={1376}
+              height={768}
               className="w-full h-full object-cover filter brightness-[0.88] contrast-105"
             />
             <div             className="light-image-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
@@ -567,7 +612,6 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
               project={project}
               index={idx}
               total={projects.length}
-              onStartClick={onStartClick}
             />
           ))}
         </div>
@@ -629,6 +673,8 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
                     <img
                       src={review.avatar}
                       alt={review.name}
+                      width={review.id === 'sarah-jenkins' ? 1200 : 1024}
+                      height={review.id === 'sarah-jenkins' ? 896 : 1024}
                       className="w-12 h-12 rounded-full object-cover border border-white/20 filter grayscale contrast-125 group-hover:grayscale-0 transition-all duration-300"
                     />
                     <div>
