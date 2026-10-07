@@ -46,7 +46,7 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
           initial={{ scale: 1.15, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.6, ease: fravEase }}
-          src="./images/ai_automation_hero_1791238819833.jpg"
+          src="./images/frav_hero_1791239384109.jpg"
           alt="Abstract digital network representing FRAV Automation"
           width={1376}
           height={768}
