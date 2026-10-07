@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, CheckCircle2, AlertCircle, ArrowUpRight, Phone } from 'lucide-react';
+import { submitContact } from '../../lib/submitContact';
 import { FravLogoMark } from './FravLogoMark';
 
 interface FravContactModalProps {
@@ -10,8 +11,9 @@ interface FravContactModalProps {
 
 export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onClose }) => {
   const [focus, setFocus] = useState<'WEB' | 'AUTOMATION' | 'BOTH'>('BOTH');
-  const [formData, setFormData] = useState({ name: '', email: '', note: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', note: '', website: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -32,19 +34,38 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
     };
   }, [isOpen, onClose]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.email.includes('@')) {
       setError('Please provide a name and valid email address.');
       return;
     }
     setError('');
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', note: '' });
-      onClose();
-    }, 2000);
+    setIsSubmitting(true);
+    try {
+      await submitContact({
+        formType: 'contact-modal',
+        name: formData.name,
+        email: formData.email,
+        focus,
+        message: formData.note,
+        website: formData.website,
+      });
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: '', email: '', note: '', website: '' });
+        onClose();
+      }, 2000);
+    } catch (submitError) {
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : 'We could not send your message. Please try again or email admin@fravautomationlab.com.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -100,6 +121,16 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 {error && (
                   <div className="p-3 rounded-lg bg-red-950/60 border border-red-500/40 text-red-200 text-xs font-sans flex items-center gap-2">
                     <AlertCircle className="w-4 h-4 shrink-0" />
@@ -177,10 +208,11 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
                 {/* Submit */}
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className="w-full py-4 rounded-xl bg-white hover:bg-[#FF4F38] text-black hover:text-white font-['Syne',sans-serif] font-black text-sm uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-98"
                 >
-                  <span>SEND BRIEF</span>
-                  <ArrowUpRight className="w-4 h-4" />
+                  <span>{isSubmitting ? 'SENDING...' : 'SEND BRIEF'}</span>
+                  {!isSubmitting && <ArrowUpRight className="w-4 h-4" />}
                 </button>
               </form>
             )}

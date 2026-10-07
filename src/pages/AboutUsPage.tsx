@@ -6,6 +6,7 @@ import { MagneticButton } from '../components/motion/MagneticButton';
 import { SplitReveal } from '../components/motion/SplitReveal';
 import { HorizontalMarquee } from '../components/motion/HorizontalMarquee';
 import { TiltCanvas } from '../components/motion/TiltCanvas';
+import { submitContact } from '../lib/submitContact';
 
 interface AboutUsPageProps {
   onNavigate: (page: FravPageId) => void;
@@ -91,6 +92,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
     company: '',
     timeline: 'Q2 / Q3 2026',
     message: '',
+    website: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -164,7 +166,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
     },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.email.includes('@')) {
       setError('Please provide your name and a valid email address.');
@@ -173,10 +175,27 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
     setError('');
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await submitContact({
+        formType: 'about-page',
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        focus: disciplineFocus,
+        timeline: formData.timeline,
+        message: formData.message,
+        website: formData.website,
+      });
       setSubmitted(true);
-    }, 900);
+    } catch (submitError) {
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : 'We could not send your inquiry. Please try again or email admin@fravautomationlab.com.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const scrollToContact = () => {
@@ -548,7 +567,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                       Thank you, {formData.name}.
                     </h3>
                     <p className="text-sm font-sans text-neutral-400 max-w-md mb-8 leading-relaxed">
-                      This form isn&apos;t connected yet. Email your brief to{' '}
+                      Your message has been sent. We&apos;ll reply soon. You can also reach us at{' '}
                       <a
                         href="mailto:admin@fravautomationlab.com"
                         className="text-white underline decoration-white/30 underline-offset-4 hover:text-[#FF4F38] transition-colors"
@@ -561,7 +580,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                       type="button"
                       onClick={() => {
                         setSubmitted(false);
-                        setFormData({ name: '', email: '', company: '', timeline: 'Q2 / Q3 2026', message: '' });
+                        setFormData({ name: '', email: '', company: '', timeline: 'Q2 / Q3 2026', message: '', website: '' });
                       }}
                       className="self-start px-5 py-3 rounded-full border border-white/20 text-xs font-sans uppercase tracking-wider text-neutral-300 hover:text-white hover:border-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4F38]"
                     >
@@ -570,6 +589,16 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    <input
+                      type="text"
+                      name="website"
+                      value={formData.website}
+                      onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="hidden"
+                    />
                     {/* Discipline Focus Selector */}
                     <div>
                       <label className="text-xs font-sans text-neutral-400 uppercase tracking-widest block mb-3">
