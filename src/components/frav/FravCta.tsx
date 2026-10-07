@@ -59,7 +59,7 @@ export const FravCta: React.FC<FravCtaProps> = ({ onContactClick }) => {
         style={{ y: textY }}
         className="relative z-10 my-auto py-12 flex flex-col items-center justify-center text-center"
       >
-        <h2 className="font-['Syne',sans-serif] font-black uppercase tracking-tighter text-6xl sm:text-[10rem] md:text-[14rem] lg:text-[18rem] leading-[0.8] text-white">
+        <h2 className="font-['Syne',sans-serif] font-black uppercase tracking-tighter text-5xl sm:text-[8rem] md:text-[11rem] lg:text-[14rem] leading-[0.8] text-white">
           CONTACT US
         </h2>
 
