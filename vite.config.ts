@@ -105,7 +105,7 @@ export default defineConfig(() => {
             url: siteUrl,
             logo: `${siteUrl}/frav-mark.svg`,
             description: pageMetadata[0].description,
-            email: 'studio@fravlab.com',
+            email: 'admin@fravautomationlab.com',
             areaServed: {
               '@type': 'Country',
               name: 'United States',

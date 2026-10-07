@@ -485,10 +485,10 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                       <div>
                         <span className="text-xs text-neutral-500 block uppercase">DIRECT INQUIRIES</span>
                         <a
-                          href="mailto:studio@fravlab.com"
+                          href="mailto:admin@fravautomationlab.com"
                           className="text-white hover:text-[#FF4F38] transition-colors text-base font-bold"
                         >
-                          studio@fravlab.com
+                          admin@fravautomationlab.com
                         </a>
                       </div>
                     </div>
@@ -550,10 +550,10 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                     <p className="text-sm font-sans text-neutral-400 max-w-md mb-8 leading-relaxed">
                       This form isn&apos;t connected yet. Email your brief to{' '}
                       <a
-                        href="mailto:studio@fravlab.com"
+                        href="mailto:admin@fravautomationlab.com"
                         className="text-white underline decoration-white/30 underline-offset-4 hover:text-[#FF4F38] transition-colors"
                       >
-                        studio@fravlab.com
+                        admin@fravautomationlab.com
                       </a>
                       .
                     </p>

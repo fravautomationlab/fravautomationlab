@@ -185,7 +185,7 @@ export default function App() {
       url: siteUrl,
       logo: `${siteUrl}/frav-mark.svg`,
       description: pageSeo.home.description,
-      email: 'studio@fravlab.com',
+      email: 'admin@fravautomationlab.com',
       areaServed: {
         '@type': 'Country',
         name: 'United States',

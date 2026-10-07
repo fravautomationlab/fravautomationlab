@@ -197,8 +197,8 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
               </a>
               <div className="flex items-center gap-2 text-[11px] text-neutral-500">
                 <span>EMAIL:</span>
-                <a href="mailto:studio@fravlab.com" className="text-neutral-300 hover:text-white transition-colors">
-                  studio@fravlab.com
+                <a href="mailto:admin@fravautomationlab.com" className="text-neutral-300 hover:text-white transition-colors">
+                  admin@fravautomationlab.com
                 </a>
               </div>
             </div>

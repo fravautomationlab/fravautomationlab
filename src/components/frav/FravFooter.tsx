@@ -16,7 +16,7 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
 
   const copyEmail = () => {
     if (navigator?.clipboard) {
-      navigator.clipboard.writeText('studio@fravlab.com');
+      navigator.clipboard.writeText('admin@fravautomationlab.com');
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2400);
     }
@@ -138,10 +138,10 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
                 </span>
                 <div className="flex items-center justify-between gap-2">
                   <a
-                    href="mailto:studio@fravlab.com"
+                    href="mailto:admin@fravautomationlab.com"
                     className="text-white hover:text-[#FF4F38] text-sm font-sans font-bold transition-colors truncate"
                   >
-                    studio@fravlab.com
+                    admin@fravautomationlab.com
                   </a>
                   <button
                     type="button"
