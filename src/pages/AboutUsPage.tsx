@@ -160,7 +160,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
     },
     {
       q: 'WHERE IS THE STUDIO LOCATED?',
-      a: 'Our core engineering and creative leads are based between Zurich and London, collaborating with discerning clients worldwide across Europe, North America, and Asia-Pacific.',
+      a: 'Our core engineering and creative leads collaborate from London and remote teams worldwide, serving clients across Europe, North America, and Asia-Pacific.',
     },
   ];
 
@@ -198,8 +198,8 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
           className="absolute inset-0 z-0 origin-center overflow-hidden pointer-events-none"
         >
           <img
-            src="./images/frav_studio_space_1791240745620.jpg"
-            alt="FRAV Automation studio architecture"
+            src="./images/frav_automation_core_1791240760315.jpg"
+            alt="FRAV Automation abstract system background"
             width={1376}
             height={768}
             className="w-full h-full object-cover object-center filter brightness-[0.55] contrast-110"
@@ -222,7 +222,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
             <span className="text-white">FRAV AUTOMATION</span>
           </div>
           <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest hidden md:block">
-            EST. 2024 · ZURICH / LONDON
+            EST. 2024 · LONDON / GLOBAL REMOTE
           </span>
         </motion.div>
 
@@ -298,7 +298,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
             '100% CODE OWNERSHIP',
             'ZERO TEMPLATE COLLAGES',
             'DIRECT ARCHITECT PARTNERSHIP',
-            'ZURICH HQ · LONDON · GLOBAL REMOTE',
+            'LONDON · GLOBAL REMOTE',
             'QUIET CONFIDENCE & EXTREME RESTRAINT',
           ]}
           speed={32}
@@ -515,7 +515,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                       <MapPin className="w-4 h-4 text-[#FF4F38] mt-1 shrink-0" />
                       <div>
                         <span className="text-xs text-neutral-500 block uppercase">HUBS</span>
-                        <span className="text-neutral-300 block">ZURICH (HQ) · LONDON · GLOBAL REMOTE</span>
+                        <span className="text-neutral-300 block">LONDON · GLOBAL REMOTE</span>
                       </div>
                     </div>
                   </div>

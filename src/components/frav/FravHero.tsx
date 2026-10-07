@@ -89,7 +89,7 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
           Business Digitalization &amp; Automation
         </motion.p>
         <h2 className="frav-hero-subheading mt-3 sm:mt-4 max-w-full text-balance text-[clamp(0.9rem,2.2vw,1.5rem)] font-sans font-semibold tracking-[0.12em] sm:tracking-[0.2em] uppercase text-white/90">
-          Website Design &amp; Website Development
+          Website Design &amp; Development
         </h2>
       </motion.div>
 

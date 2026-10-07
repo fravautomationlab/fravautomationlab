@@ -114,7 +114,7 @@ export const FravEntranceLoader: React.FC<FravEntranceLoaderProps> = ({ onComple
               <FravLogoMark className="h-4 w-8 text-white" />
             </div>
             <div className="hidden sm:flex items-center text-neutral-500 text-[11px]">
-              <span>ZURICH · 47.3769° N, 8.5417° E</span>
+              <span>GLOBAL STUDIO NETWORK</span>
             </div>
           </div>
 

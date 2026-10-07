@@ -56,7 +56,7 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
               <span className="text-neutral-400">DIGITAL ATELIER</span>
             </div>
             <div className="flex items-center gap-4 text-[11px] text-neutral-400">
-              <span>ZURICH (HQ) · URANIASTRASSE 9</span>
+              <span>GLOBAL STUDIO NETWORK</span>
               <span className="text-neutral-600">·</span>
               <span>COMMISSIONS OPEN</span>
             </div>
@@ -80,13 +80,13 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
                   ARCHITECTURE & AUTONOMOUS REASONING
                 </div>
                 <p className="text-sm font-sans text-neutral-400 font-light leading-relaxed max-w-sm">
-                  Pioneering high-impact web flagships, reactive systems, and autonomous agent workflows. Engineered in Switzerland for discerning enterprises worldwide.
+                  Pioneering high-impact web flagships, reactive systems, and autonomous agent workflows for discerning enterprises worldwide.
                 </p>
               </div>
 
               <div className="text-xs font-sans text-neutral-400 flex items-center gap-2 pt-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>SWISS COMMERCIAL LAW NDA PROTECTION · ZERO TELEMETRY</span>
+                <span>CONFIDENTIAL COMMERCIAL LAW NDA PROTECTION · ZERO TELEMETRY</span>
               </div>
             </div>
 
@@ -173,13 +173,13 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
                 </a>
               </div>
 
-              {/* Zurich Physical Coordinates */}
+              {/* Global studio coordinates */}
               <div className="pt-2 text-xs font-sans text-neutral-400 space-y-1">
                 <div className="flex items-start gap-2">
                   <MapPin className="w-3.5 h-3.5 text-[#FF4F38] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-white font-medium block">ZURICH HEADQUARTERS</span>
-                    <span className="text-neutral-400 text-[11px] block">Uraniastrasse 9, 8001 Zürich, Switzerland</span>
+                    <span className="text-white font-medium block">GLOBAL STUDIO</span>
+                    <span className="text-neutral-400 text-[11px] block">REMOTE-FIRST CREATIVE + ENGINEERING</span>
                   </div>
                 </div>
               </div>
@@ -197,7 +197,7 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
                   ARCHITECTURAL DIGITAL CRAFT
                 </span>
                 <span className="text-[11px] font-sans text-neutral-400 tracking-widest uppercase">
-                  SWISS ENGINEERING · AUTONOMOUS REASONING
+                  GLOBAL ENGINEERING · AUTONOMOUS REASONING
                 </span>
               </div>
             </div>
@@ -244,9 +244,9 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
                 type="button"
                 onClick={() =>
                   setLegalModal({
-                    title: 'SWISS NDA & COMMERCIAL LAW',
+                    title: 'CONFIDENTIALITY & COMMERCIAL LAW',
                     content:
-                      'FRAV Automation operates under Swiss jurisdiction in the Canton of Zurich. All engagements benefit from Switzerland’s world-renowned confidentiality and intellectual property protections.',
+                      'FRAV Automation operates under clear commercial confidentiality agreements that protect client trade secrets, project architecture, and intellectual property throughout every engagement.',
                   })
                 }
                 className="hover:text-white transition-colors cursor-pointer uppercase tracking-wider text-[11px]"
