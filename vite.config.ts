@@ -8,27 +8,27 @@ import {defineConfig} from 'vite';
 const pageMetadata = [
   {
     path: '/',
-    title: 'FRAV Automation | Website Development & AI Automation',
+    title: 'FRAV Automation | Web Design & AI Automation for U.S. Businesses',
     description:
-      'FRAV Automation is a technology studio creating premium websites, interactive digital experiences, AI agents, and business workflow automation.',
+      'FRAV Automation builds premium websites and practical AI automation for businesses across the United States. Remote-first web design, development, AI agents, and workflow systems.',
   },
   {
     path: '/web',
-    title: 'Website Development | FRAV Automation',
+    title: 'Web Design & Development for U.S. Businesses | FRAV Automation',
     description:
-      'FRAV Automation designs and builds premium, responsive websites and interactive digital experiences, from visual direction through production-ready development.',
+      'Custom website design and development for U.S. businesses. FRAV Automation creates premium, responsive websites and digital experiences, from strategy through launch.',
   },
   {
     path: '/automation',
-    title: 'AI Automation | FRAV Automation',
+    title: 'AI Automation for U.S. Businesses | FRAV Automation',
     description:
-      'FRAV Automation creates AI agents, workflow automation, integrations, and custom AI systems shaped around real business processes.',
+      'FRAV Automation builds AI agents, workflow automation, and business integrations for U.S. teams—custom systems designed around real processes.',
   },
   {
     path: '/about',
-    title: 'About FRAV Automation | Web + AI',
+    title: 'About FRAV Automation | U.S. Web + AI Partner',
     description:
-      'FRAV Automation is a technology studio focused on premium website development and practical AI automation. We create considered digital experiences and reliable systems that help businesses operate smarter, scale with confidence, and stay ahead in a rapidly changing digital landscape.',
+      'FRAV Automation is a remote-first technology studio partnering with U.S. businesses on premium websites and practical AI automation, from digital experiences to workflow systems.',
   },
 ];
 
@@ -106,6 +106,10 @@ export default defineConfig(() => {
             logo: `${siteUrl}/frav-mark.svg`,
             description: pageMetadata[0].description,
             email: 'studio@fravlab.com',
+            areaServed: {
+              '@type': 'Country',
+              name: 'United States',
+            },
           }).replaceAll('<', '\\u003c');
 
           for (const page of pageMetadata) {
