@@ -21,7 +21,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 }) => {
   return (
     <main className="flex-1 flex flex-col bg-[#0A0A0A] text-white">
-      {/* HERO: FRAV · WEB + AUTOMATION · START */}
+      {/* HERO: FRAV AUTOMATION · WEBSITE DEVELOPMENT + AUTOMATION · START */}
       <FravHero onStartClick={onStartClick} />
 
       {/* ABOUT THE STUDIO */}

@@ -7,6 +7,7 @@ interface SplitRevealProps {
   delay?: number;
   duration?: number;
   stagger?: number;
+  animateOnMount?: boolean;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span' | 'div';
 }
 
@@ -16,6 +17,7 @@ export const SplitReveal: React.FC<SplitRevealProps> = ({
   delay = 0,
   duration = 1.1,
   stagger = 0.08,
+  animateOnMount = false,
   as: Component = 'div',
 }) => {
   const words = children.split(' ');
@@ -26,9 +28,10 @@ export const SplitReveal: React.FC<SplitRevealProps> = ({
       {words.map((word, i) => (
         <span key={i} className="inline-block overflow-hidden mr-[0.25em] last:mr-0 py-1">
           <motion.span
-            initial={{ y: '110%', opacity: 0 }}
-            whileInView={{ y: '0%', opacity: 1 }}
-            viewport={{ once: true, amount: 'some' }}
+            initial={animateOnMount ? false : { y: '110%', opacity: 0 }}
+            animate={animateOnMount ? { y: '0%', opacity: 1 } : undefined}
+            whileInView={animateOnMount ? undefined : { y: '0%', opacity: 1 }}
+            viewport={animateOnMount ? undefined : { once: true, amount: 'some' }}
             transition={{
               duration,
               delay: delay + i * stagger,

@@ -4,6 +4,7 @@ import { Menu, X, Phone, Sun, Moon } from 'lucide-react';
 import type Lenis from 'lenis';
 import { FravPageId } from '../../types';
 import { useTheme } from '../../context/ThemeContext';
+import { FravLogoMark } from './FravLogoMark';
 
 interface FravNavProps {
   currentPage: FravPageId;
@@ -71,13 +72,13 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
         }`}
       >
         <div className="w-full px-6 sm:px-12 md:px-16 lg:px-24 flex items-center justify-between">
-          {/* Brand: FRAV */}
           <a
             href="/"
             onClick={(event) => handleLinkClick(event, 'home')}
-            className="text-xl sm:text-2xl font-black tracking-tighter text-white font-['Syne',sans-serif] uppercase hover:opacity-80 transition-opacity cursor-pointer text-left"
+            aria-label="FRAV Automation home"
+            className="inline-flex items-center text-white hover:opacity-80 transition-opacity cursor-pointer"
           >
-            FRAV
+            <FravLogoMark className="h-6 w-12 shrink-0" />
           </a>
 
           {/* Center/Right: WEBSITE DEVELOPMENT / AUTOMATION / ABOUT US */}
@@ -237,8 +238,7 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
               </div>
             </div>
 
-            <div className="flex items-center justify-between text-xs font-sans text-neutral-400 uppercase tracking-widest pt-4 border-t border-white/10">
-              <span>FRAV LAB · 2026</span>
+            <div className="flex items-center justify-end text-xs font-sans text-neutral-400 uppercase tracking-widest pt-4 border-t border-white/10">
               <button
                 type="button"
                 onClick={toggleTheme}

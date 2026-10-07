@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Phone, MapPin, ArrowUp, ArrowUpRight, Copy, Check, Sun, Moon } from 'lucide-react';
 import { FravPageId } from '../../types';
 import { useTheme } from '../../context/ThemeContext';
+import { FravLogoMark } from './FravLogoMark';
 
 interface FravFooterProps {
   onNavigate: (page: FravPageId) => void;
@@ -35,7 +36,7 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
   return (
     <>
       <footer
-        aria-label="FRAV Laboratory Footer"
+        aria-label="FRAV Automation Footer"
         className="w-full bg-[#050505] text-white pt-16 sm:pt-20 pb-12 border-t border-white/10 relative overflow-hidden select-none"
       >
         {/* Subtle Ambient Radial Glow */}
@@ -50,7 +51,7 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-8 sm:pb-12 border-b border-white/10 text-xs font-sans tracking-widest text-neutral-400 uppercase gap-4">
             <div className="flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-[#FF4F38]" />
-              <span className="text-white font-bold tracking-[0.2em]">FRAV AUTOMATION LAB</span>
+              <FravLogoMark className="h-4 w-8 text-white" />
               <span className="text-neutral-600">/</span>
               <span className="text-neutral-400">DIGITAL ATELIER</span>
             </div>
@@ -70,9 +71,10 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
                 <button
                   type="button"
                   onClick={() => onNavigate('home')}
-                  className="text-3xl sm:text-4xl font-black font-['Syne',sans-serif] tracking-tight uppercase text-white hover:text-[#FF4F38] transition-colors text-left cursor-pointer inline-block"
+                  aria-label="Home"
+                  className="inline-flex items-center gap-4 text-[clamp(1.5rem,3.2vw,2.25rem)] font-black font-['Syne',sans-serif] tracking-tight uppercase text-white hover:text-[#FF4F38] transition-colors text-left cursor-pointer"
                 >
-                  FRAV
+                  <FravLogoMark className="h-8 w-16 shrink-0" />
                 </button>
                 <div className="text-xs font-sans text-neutral-400 tracking-wider uppercase font-semibold">
                   ARCHITECTURE & AUTONOMOUS REASONING
@@ -184,10 +186,10 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
             </div>
           </div>
 
-          {/* Monumental Architectural Brand Graphic */}
+          {/* Architectural Footer Graphic */}
           <div className="py-12 sm:py-16 relative flex items-center justify-center overflow-hidden pointer-events-none select-none border-b border-white/10">
-            <span className="font-['Syne',sans-serif] font-black uppercase text-center tracking-tighter leading-none text-white/[0.04] text-[18vw] sm:text-[22vw]">
-              FRAV
+            <span className="font-['Syne',sans-serif] font-black uppercase text-center tracking-tighter leading-none text-white/[0.04] text-[clamp(2rem,12vw,10rem)]">
+              FRAV AUTOMATION
             </span>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
@@ -204,7 +206,7 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
           {/* Bottom Bar: Precision Legal & Navigation */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-8 text-xs font-sans text-neutral-400">
             <div className="flex flex-wrap items-center gap-3 sm:gap-6">
-              <span>© {new Date().getFullYear()} FRAV AUTOMATION LAB. ALL RIGHTS RESERVED.</span>
+              <span>© {new Date().getFullYear()} · ALL RIGHTS RESERVED.</span>
               <span className="hidden md:inline text-neutral-600">·</span>
               <span className="hidden md:inline text-neutral-400">TYPESCRIPT & TAILWIND ARCHITECTURE</span>
             </div>
@@ -216,7 +218,7 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
                   setLegalModal({
                     title: 'DATA PRIVACY & ZERO TELEMETRY',
                     content:
-                      'All source code, workflow configurations, database schemas, and proprietary credentials engineered by FRAV are strictly confidential. We maintain zero telemetry tracking of user workflows and sign mutual Swiss non-disclosure agreements before commencing architecture sprints.',
+                      'All source code, workflow configurations, database schemas, and proprietary credentials engineered by FRAV Automation are strictly confidential. We maintain zero telemetry tracking of user workflows and sign mutual Swiss non-disclosure agreements before commencing architecture sprints.',
                   })
                 }
                 className="hover:text-white transition-colors cursor-pointer uppercase tracking-wider text-[11px]"
@@ -230,7 +232,7 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
                   setLegalModal({
                     title: 'TERMS OF ENGAGEMENT & IP ASSIGNMENT',
                     content:
-                      'All production codebases, design systems, and cloud pipelines delivered by FRAV become 100% the intellectual property of the commissioning client upon invoice completion. No proprietary vendor lock-in or hidden licensing fees.',
+                      'All production codebases, design systems, and cloud pipelines delivered by FRAV Automation become 100% the intellectual property of the commissioning client upon invoice completion. No proprietary vendor lock-in or hidden licensing fees.',
                   })
                 }
                 className="hover:text-white transition-colors cursor-pointer uppercase tracking-wider text-[11px]"
@@ -244,7 +246,7 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
                   setLegalModal({
                     title: 'SWISS NDA & COMMERCIAL LAW',
                     content:
-                      'FRAV operates under Swiss jurisdiction in the Canton of Zurich. All engagements benefit from Switzerland’s world-renowned confidentiality and intellectual property protections.',
+                      'FRAV Automation operates under Swiss jurisdiction in the Canton of Zurich. All engagements benefit from Switzerland’s world-renowned confidentiality and intellectual property protections.',
                   })
                 }
                 className="hover:text-white transition-colors cursor-pointer uppercase tracking-wider text-[11px]"
@@ -297,7 +299,7 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
           >
             <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
               <span className="text-xs font-sans text-[#FF4F38] uppercase tracking-widest font-bold">
-                FRAV STUDIO STANDARD
+                STUDIO STANDARD
               </span>
               <span className="text-xs font-sans text-neutral-400">LEGAL COMPLIANCE</span>
             </div>

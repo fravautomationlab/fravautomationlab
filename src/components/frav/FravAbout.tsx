@@ -20,7 +20,7 @@ export const FravAbout: React.FC<FravAboutProps> = ({ onExplore }) => (
     <div className="grid flex-1 grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
       <h2
         id="frav-about-heading"
-        className="lg:col-span-7 text-4xl sm:text-6xl lg:text-7xl font-black font-['Syne',sans-serif] uppercase tracking-tighter leading-[0.95]"
+        className="frav-about-title lg:col-span-7 text-4xl sm:text-6xl lg:text-7xl font-black font-['Syne',sans-serif] uppercase tracking-tighter leading-[0.95]"
       >
         Thoughtful design.
         <span className="block text-neutral-400">Intelligent systems.</span>
@@ -28,9 +28,10 @@ export const FravAbout: React.FC<FravAboutProps> = ({ onExplore }) => (
 
       <div className="lg:col-span-5 flex flex-col items-start gap-6">
         <p className="max-w-xl text-base sm:text-lg leading-relaxed text-neutral-300">
-          FRAV Automation Lab is a two-person technology studio focused on premium website
-          development and practical AI automation. We unite considered digital experiences with
-          reliable systems that help businesses move forward.
+          FRAV Automation is a technology studio focused on premium website development and
+          practical AI automation. We create considered digital experiences and reliable systems
+          that help businesses operate smarter, scale with confidence, and stay ahead in a rapidly
+          changing digital landscape.
         </p>
         <button
           type="button"

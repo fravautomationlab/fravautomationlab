@@ -29,7 +29,7 @@ export const FravAutomation: React.FC<FravAutomationProps> = ({ onExplore }) => 
       <div className="flex items-baseline justify-between w-full border-b border-white/10 pb-6 mb-16 sm:mb-24">
         <div className="flex items-baseline gap-4">
           <span className="text-xs font-sans text-neutral-400">03 /</span>
-          <h2 className="text-5xl sm:text-7xl lg:text-9xl font-black font-['Syne',sans-serif] tracking-tighter leading-none">
+          <h2 className="frav-automation-title text-5xl sm:text-7xl lg:text-9xl font-black font-['Syne',sans-serif] tracking-tighter leading-none">
             AUTOMATION
           </h2>
         </div>

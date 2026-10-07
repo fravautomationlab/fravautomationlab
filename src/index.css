@@ -28,25 +28,8 @@ body {
   h3 {
     max-width: 100%;
     min-width: 0;
-    overflow-wrap: anywhere;
-  }
-
-  h1 {
-    font-size: clamp(3rem, 10vw, 7rem) !important;
-    line-height: 0.95;
-    letter-spacing: -0.06em;
-  }
-
-  h2 {
-    font-size: clamp(1.875rem, 6vw, 4.5rem) !important;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
-  }
-
-  h3 {
-    font-size: clamp(1.25rem, 3.8vw, 3rem) !important;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
+    overflow-wrap: break-word;
+    text-wrap: balance;
   }
 
   .frav-hero-title {
@@ -69,10 +52,185 @@ body {
     letter-spacing: -0.05em;
     overflow-wrap: normal;
   }
+
+  .frav-work-title {
+    max-width: calc(100vw - 5rem);
+    text-wrap: balance;
+  }
+
+  #cta .frav-cta-title {
+    font-size: clamp(2.25rem, 10vw, 14rem) !important;
+  }
+
+  #about .frav-about-title {
+    font-size: clamp(1.75rem, 6vw, 3.5rem) !important;
+  }
+}
+
+@media (max-width: 639px) {
+  #process .frav-process-heading {
+    font-size: clamp(1.35rem, 6.5vw, 3rem) !important;
+  }
+
+  #process .frav-process-title {
+    font-size: clamp(1.25rem, 7.2vw, 5rem) !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .frav-work-title {
+    max-width: calc(100vw - 8rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  #about .frav-about-title {
+    font-size: clamp(2rem, 3.7vw, 3.8rem) !important;
+  }
+
+  .frav-work-title {
+    max-width: calc(100vw - 12rem);
+  }
+
+  #cta .frav-cta-title {
+    font-size: clamp(4rem, 10vw, 14rem) !important;
+  }
+}
+
+/* Keep display utilities fluid instead of jumping between fixed breakpoint sizes. */
+[class~="text-3xl"] {
+  font-size: clamp(1.5rem, 2.6vw, 1.875rem) !important;
+}
+
+[class~="text-4xl"] {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem) !important;
+}
+
+[class~="text-5xl"] {
+  font-size: clamp(2rem, 4.5vw, 3.5rem) !important;
+}
+
+[class~="text-6xl"] {
+  font-size: clamp(2.25rem, 5vw, 4.5rem) !important;
+}
+
+[class~="text-7xl"] {
+  font-size: clamp(2.5rem, 6vw, 5.5rem) !important;
+}
+
+[class~="text-8xl"] {
+  font-size: clamp(2.75rem, 7vw, 7rem) !important;
+}
+
+[class~="text-9xl"] {
+  font-size: clamp(3rem, 8vw, 9rem) !important;
+}
+
+h3.frav-web-process-title {
+  font-size: clamp(0.9rem, 1.4vw, 1.2rem) !important;
+}
+
+h2.frav-web-cta-title,
+h2.frav-automation-cta-title {
+  font-size: clamp(1.5rem, 4.1vw, 3.75rem) !important;
+  text-wrap: balance;
+}
+
+h3.frav-automation-system-title {
+  font-size: clamp(1.5rem, 3.6vw, 3rem) !important;
+  text-wrap: balance;
+}
+
+h3.frav-about-discipline-title {
+  font-size: clamp(1.35rem, 2.1vw, 2.2rem) !important;
+  text-wrap: balance;
+}
+
+.frav-web-ethos-tagline {
+  font-size: clamp(2rem, 6.2vw, 5.5rem) !important;
+  text-wrap: balance;
+}
+
+h2.frav-about-faq-title {
+  font-size: clamp(1.15rem, 3vw, 2.5rem) !important;
+}
+
+#automation .frav-automation-title {
+  font-size: clamp(1.3rem, 6.5vw, 8rem) !important;
+}
+
+@media (min-width: 640px) {
+  [class~="sm:text-3xl"] { font-size: clamp(1.5rem, 2.6vw, 1.875rem) !important; }
+  [class~="sm:text-4xl"] { font-size: clamp(1.75rem, 3.5vw, 2.75rem) !important; }
+  [class~="sm:text-5xl"] { font-size: clamp(2rem, 4.5vw, 3.5rem) !important; }
+  [class~="sm:text-6xl"] { font-size: clamp(2.25rem, 5vw, 4.5rem) !important; }
+  [class~="sm:text-7xl"] { font-size: clamp(2.5rem, 6vw, 5.5rem) !important; }
+  [class~="sm:text-8xl"] { font-size: clamp(2.75rem, 7vw, 7rem) !important; }
+  [class~="sm:text-9xl"] { font-size: clamp(3rem, 8vw, 9rem) !important; }
+}
+
+@media (min-width: 768px) {
+  [class~="md:text-3xl"] { font-size: clamp(1.5rem, 2.6vw, 1.875rem) !important; }
+  [class~="md:text-4xl"] { font-size: clamp(1.75rem, 3.5vw, 2.75rem) !important; }
+  [class~="md:text-5xl"] { font-size: clamp(2rem, 4.5vw, 3.5rem) !important; }
+  [class~="md:text-6xl"] { font-size: clamp(2.25rem, 5vw, 4.5rem) !important; }
+  [class~="md:text-7xl"] { font-size: clamp(2.5rem, 6vw, 5.5rem) !important; }
+  [class~="md:text-8xl"] { font-size: clamp(2.75rem, 7vw, 7rem) !important; }
+  [class~="md:text-9xl"] { font-size: clamp(3rem, 8vw, 9rem) !important; }
+}
+
+@media (min-width: 1024px) {
+  [class~="lg:text-3xl"] { font-size: clamp(1.5rem, 2.6vw, 1.875rem) !important; }
+  [class~="lg:text-4xl"] { font-size: clamp(1.75rem, 3.5vw, 2.75rem) !important; }
+  [class~="lg:text-5xl"] { font-size: clamp(2rem, 4.5vw, 3.5rem) !important; }
+  [class~="lg:text-6xl"] { font-size: clamp(2.25rem, 5vw, 4.5rem) !important; }
+  [class~="lg:text-7xl"] { font-size: clamp(2.5rem, 6vw, 5.5rem) !important; }
+  [class~="lg:text-8xl"] { font-size: clamp(2.75rem, 7vw, 7rem) !important; }
+  [class~="lg:text-9xl"] { font-size: clamp(3rem, 8vw, 9rem) !important; }
+}
+
+@media (min-width: 1280px) {
+  [class~="xl:text-3xl"] { font-size: clamp(1.5rem, 2.6vw, 1.875rem) !important; }
+  [class~="xl:text-4xl"] { font-size: clamp(1.75rem, 3.5vw, 2.75rem) !important; }
+  [class~="xl:text-5xl"] { font-size: clamp(2rem, 4.5vw, 3.5rem) !important; }
+  [class~="xl:text-6xl"] { font-size: clamp(2.25rem, 5vw, 4.5rem) !important; }
+  [class~="xl:text-7xl"] { font-size: clamp(2.5rem, 6vw, 5.5rem) !important; }
+  [class~="xl:text-8xl"] { font-size: clamp(2.75rem, 7vw, 7rem) !important; }
+  [class~="xl:text-9xl"] { font-size: clamp(3rem, 8vw, 9rem) !important; }
+}
+
+@media (min-width: 1536px) {
+  [class~="2xl:text-3xl"] { font-size: clamp(1.5rem, 2.6vw, 1.875rem) !important; }
+  [class~="2xl:text-4xl"] { font-size: clamp(1.75rem, 3.5vw, 2.75rem) !important; }
+  [class~="2xl:text-5xl"] { font-size: clamp(2rem, 4.5vw, 3.5rem) !important; }
+  [class~="2xl:text-6xl"] { font-size: clamp(2.25rem, 5vw, 4.5rem) !important; }
+  [class~="2xl:text-7xl"] { font-size: clamp(2.5rem, 6vw, 5.5rem) !important; }
+  [class~="2xl:text-8xl"] { font-size: clamp(2.75rem, 7vw, 7rem) !important; }
+  [class~="2xl:text-9xl"] { font-size: clamp(3rem, 8vw, 9rem) !important; }
+}
+
+.frav-about-hero-brand {
+  font-size: clamp(1.4rem, 7.2vw, 6rem) !important;
+}
+
+.frav-web-hero-title {
+  font-size: clamp(2rem, 10vw, 9rem) !important;
+}
+
+.frav-web-hero-subtitle {
+  font-size: clamp(1.25rem, 6.3vw, 5.25rem) !important;
+}
+
+.frav-automation-hero-title {
+  font-size: clamp(3rem, 12vw, 10rem) !important;
+}
+
+.frav-automation-hero-subtitle {
+  font-size: clamp(1.5rem, 7.2vw, 5.8rem) !important;
 }
 
 /* ==========================================================================
-   FRAV LIGHT MODE ARCHITECTURAL STYLING (SWISS ATELIER THEME)
+   FRAV AUTOMATION LIGHT MODE ARCHITECTURAL STYLING (SWISS ATELIER THEME)
    ========================================================================== */
 
 html.light {

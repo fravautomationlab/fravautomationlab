@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { FravLogoMark } from './FravLogoMark';
 
 interface FravEntranceLoaderProps {
   onComplete: () => void;
@@ -16,7 +17,7 @@ export const FravEntranceLoader: React.FC<FravEntranceLoaderProps> = ({ onComple
     if (exitTriggered.current) return;
     exitTriggered.current = true;
     setProgress(100);
-    setPhaseText('FRAV ATELIER · ONLINE');
+    setPhaseText('SYSTEM ONLINE');
     setTimeout(() => {
       setIsExiting(true);
     }, 150);
@@ -56,7 +57,7 @@ export const FravEntranceLoader: React.FC<FravEntranceLoaderProps> = ({ onComple
       } else if (currentVal < 98) {
         setPhaseText('OPTIMIZING BESPOKE ARCHITECTURE');
       } else {
-        setPhaseText('FRAV AUTOMATION LAB · ONLINE');
+        setPhaseText('SYSTEM ONLINE');
       }
 
       if (t < 1) {
@@ -110,27 +111,15 @@ export const FravEntranceLoader: React.FC<FravEntranceLoaderProps> = ({ onComple
           <div className="relative z-10 w-full flex items-center justify-between text-xs font-sans uppercase tracking-widest text-neutral-400">
             <div className="flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-[#FF4F38] animate-pulse" />
-              <span className="text-white font-bold tracking-[0.2em]">FRAV AUTOMATION LAB</span>
+              <FravLogoMark className="h-4 w-8 text-white" />
             </div>
             <div className="hidden sm:flex items-center text-neutral-500 text-[11px]">
               <span>ZURICH · 47.3769° N, 8.5417° E</span>
             </div>
           </div>
 
-          {/* Centerpiece: Monumental Brand Title, Counter & Kinetic Status */}
-          <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center my-auto text-center space-y-8">
-            {/* Monumental Title with Mask Reveal */}
-            <div className="overflow-hidden">
-              <motion.h1
-                initial={{ y: 90, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className="font-['Syne',sans-serif] font-black uppercase text-[clamp(3rem,18vw,7rem)] sm:text-9xl md:text-[11rem] lg:text-[13rem] tracking-tighter leading-none text-white"
-              >
-                FRAV
-              </motion.h1>
-            </div>
-
+          {/* Centerpiece: Counter & Kinetic Status */}
+          <div className="relative z-10 w-full max-w-full mx-auto flex flex-col items-center justify-center my-auto text-center space-y-8">
             {/* Kinetic Progress Metric Lockup */}
             <div className="flex flex-col items-center gap-4 w-full max-w-md">
               <div className="flex items-baseline justify-between w-full text-xs font-sans tracking-widest uppercase">

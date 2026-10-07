@@ -77,7 +77,7 @@ const PrincipleStackCard: React.FC<PrincipleStackCardProps> = ({ principle, inde
 
       <div className="pt-8 mt-8 border-t border-white/10 flex items-center justify-between text-xs font-sans text-neutral-500">
         <span className="uppercase tracking-widest">{principle.tagline}</span>
-        <span className="text-neutral-400 font-bold tracking-wider">FRAV STANDARD · NON-NEGOTIABLE</span>
+        <span className="text-neutral-400 font-bold tracking-wider">FRAV AUTOMATION STANDARD · NON-NEGOTIABLE</span>
       </div>
     </motion.div>
   );
@@ -147,7 +147,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
 
   const faqs = [
     {
-      q: 'HOW DOES FRAV ENGAGE WITH CLIENTS?',
+      q: 'HOW DOES FRAV AUTOMATION ENGAGE WITH CLIENTS?',
       a: 'We work either on fixed-scope production sprints (typically 3–6 weeks for digital flagships or autonomous pipelines) or quarterly architectural retainers for continuous engineering evolution.',
     },
     {
@@ -189,7 +189,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
       {/* 1. MONUMENTAL HERO SECTION */}
       <section
         ref={heroRef}
-        aria-label="About FRAV Hero"
+        aria-label="About FRAV Automation Hero"
         className="light-image-overlay relative min-h-screen w-full flex flex-col justify-between pt-28 pb-12 sm:pb-16 px-6 sm:px-12 md:px-16 lg:px-24 overflow-hidden bg-[#0A0A0A] select-none"
       >
         {/* Full-Bleed Parallax Studio Space Background */}
@@ -199,7 +199,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
         >
           <img
             src="./images/frav_studio_space_1791240745620.jpg"
-            alt="FRAV Studio Space Architecture"
+            alt="FRAV Automation studio architecture"
             width={1376}
             height={768}
             className="w-full h-full object-cover object-center filter brightness-[0.55] contrast-110"
@@ -219,7 +219,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
             <span className="text-[#FF4F38] font-bold">03 /</span>
             <span>STUDIO & CONTACT</span>
             <span className="text-neutral-600">/</span>
-            <span className="text-white">FRAV AUTOMATION LAB</span>
+            <span className="text-white">FRAV AUTOMATION</span>
           </div>
           <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest hidden md:block">
             EST. 2024 · ZURICH / LONDON
@@ -233,9 +233,10 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
         >
           <SplitReveal
             as="h1"
-            className="font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] text-white justify-center"
+            animateOnMount
+            className="frav-about-hero-brand font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] text-white justify-center"
           >
-            FRAV
+            FRAV AUTOMATION
           </SplitReveal>
 
           <motion.div
@@ -293,7 +294,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
       <div className="py-6 border-y border-white/10 bg-[#0A0A0A]">
         <HorizontalMarquee
           items={[
-            'FRAV AUTOMATION LAB',
+            'FRAV AUTOMATION',
             '100% CODE OWNERSHIP',
             'ZERO TEMPLATE COLLAGES',
             'DIRECT ARCHITECT PARTNERSHIP',
@@ -327,7 +328,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
               className="md:col-span-6"
             >
               <p className="text-lg sm:text-2xl text-neutral-300 font-light leading-relaxed">
-                Frav was founded on a singular conviction: modern digital organizations should never be forced to choose between visceral aesthetic craft and operational velocity.
+                FRAV Automation was founded on a singular conviction: modern digital organizations should never be forced to choose between visceral aesthetic craft and operational velocity.
               </p>
             </motion.div>
             <motion.div
@@ -372,7 +373,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                     THE VISIBLE SURFACE
                   </span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white mb-6">
+                <h3 className="frav-about-discipline-title text-2xl sm:text-3xl md:text-4xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white mb-6">
                   WEBSITE DEVELOPMENT
                 </h3>
                 <p className="text-base sm:text-lg text-neutral-400 font-light leading-relaxed mb-8">
@@ -400,7 +401,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                     THE SILENT ENGINE
                   </span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white mb-6">
+                <h3 className="frav-about-discipline-title text-2xl sm:text-3xl md:text-4xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white mb-6">
                   AUTOMATION WORK
                 </h3>
                 <p className="text-base sm:text-lg text-neutral-400 font-light leading-relaxed mb-8">
@@ -667,7 +668,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                           <span>TRANSMITTING BRIEF...</span>
                         ) : (
                           <>
-                            <span>TRANSMIT BRIEF TO FRAV</span>
+                            <span>TRANSMIT BRIEF TO FRAV AUTOMATION</span>
                             <Send className="w-3.5 h-3.5 ml-1" />
                           </>
                         )}
@@ -692,10 +693,10 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
 
       {/* 6. STUDIO PROTOCOL & FAQ */}
       <section className="px-6 sm:px-12 md:px-16 lg:px-24 pb-24 sm:pb-36 bg-[#0A0A0A]">
-        <div className="flex items-baseline justify-between border-b border-white/10 pb-6 mb-12">
-          <div className="flex items-baseline gap-4">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 border-b border-white/10 pb-6 mb-12">
+          <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
             <span className="text-xs font-sans text-neutral-400">PROTOCOL /</span>
-            <h2 className="text-2xl sm:text-4xl font-black font-['Syne',sans-serif] tracking-tight uppercase">
+            <h2 className="frav-about-faq-title text-2xl sm:text-4xl font-black font-['Syne',sans-serif] tracking-tight uppercase">
               ENGAGEMENT FAQ
             </h2>
           </div>

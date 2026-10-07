@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, CheckCircle2, AlertCircle, ArrowUpRight, Phone } from 'lucide-react';
+import { FravLogoMark } from './FravLogoMark';
 
 interface FravContactModalProps {
   isOpen: boolean;
@@ -67,8 +68,9 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
             {/* Header */}
             <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
               <div>
-                <span className="text-[10px] font-sans text-neutral-400 uppercase tracking-widest block mb-1">
-                  FRAV AUTOMATION LAB
+                <span className="mb-1 flex items-center gap-2 text-[10px] font-sans text-neutral-400 uppercase tracking-widest">
+                  <FravLogoMark className="h-3 w-6 text-neutral-400" />
+                  FRAV AUTOMATION
                 </span>
                 <h3 className="text-3xl sm:text-4xl font-black font-['Syne',sans-serif] uppercase tracking-tight">
                   CONTACT US
@@ -93,7 +95,7 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
                   TRANSMISSION RECEIVED
                 </h4>
                 <p className="text-sm font-sans text-neutral-400">
-                  Frav Studio will review your scope within 24 hours.
+                  FRAV Automation will review your scope within 24 hours.
                 </p>
               </div>
             ) : (

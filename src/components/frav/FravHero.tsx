@@ -34,7 +34,7 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
   return (
     <section
       ref={containerRef}
-      aria-label="FRAV Hero"
+      aria-label="FRAV Automation Hero"
       className="light-image-overlay relative min-h-screen w-full flex flex-col justify-between pt-28 pb-10 sm:pb-16 px-6 sm:px-12 md:px-16 lg:px-24 overflow-hidden bg-[#0A0A0A] text-white select-none"
     >
       {/* Background Image Container: expands on load & scales on scroll */}
@@ -46,8 +46,8 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
           initial={{ scale: 1.15, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.6, ease: fravEase }}
-          src="./images/frav_hero_1791239384109.jpg"
-          alt="FRAV Architecture"
+          src="./images/ai_automation_hero_1791238819833.jpg"
+          alt="Abstract digital network representing FRAV Automation"
           width={1376}
           height={768}
           className="w-full h-full object-cover object-center filter brightness-[0.72] contrast-110"
@@ -75,8 +75,7 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
           transition={{ duration: 1.2, delay: 0.2, ease: fravEase }}
           className="frav-hero-title w-full text-balance font-['Syne',sans-serif] font-black uppercase text-center tracking-tighter leading-[0.82] text-[clamp(1.35rem,7.2vw,8.5rem)] text-white"
         >
-          <span className="whitespace-nowrap">FRAV</span>{' '}
-          <span className="whitespace-nowrap">AUTOMATION</span>
+          FRAV AUTOMATION
         </motion.h1>
 
         {/* Supporting line under the primary heading */}

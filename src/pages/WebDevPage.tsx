@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { ArrowUpRight, ArrowRight, ArrowDown, CheckCircle2, Star, Quote, Code2, Terminal, ShieldCheck, Phone } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, CheckCircle2, Star, Quote, Code2, Terminal, ShieldCheck, Phone } from 'lucide-react';
 import { FravPageId } from '../types';
 import { MagneticButton } from '../components/motion/MagneticButton';
 import { SplitReveal } from '../components/motion/SplitReveal';
@@ -174,13 +174,6 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
   const heroScale = useTransform(heroProgress, [0, 1], [1, 1.18]);
   const heroTextY = useTransform(heroProgress, [0, 1], ['0%', '30%']);
   const heroTextOpacity = useTransform(heroProgress, [0, 0.85], [1, 0.1]);
-
-  const scrollToWork = () => {
-    const el = document.getElementById('selected-work');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   // Core Website Developer Capabilities: HTML, CSS, JavaScript, Tailwind CSS, TypeScript
   const capabilities = [
@@ -420,7 +413,8 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
         >
           <SplitReveal
             as="h1"
-            className="font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[11rem] text-white"
+            animateOnMount
+            className="frav-web-hero-title font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[11rem] text-white"
           >
             WEBSITE
           </SplitReveal>
@@ -428,7 +422,8 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
           <SplitReveal
             as="div"
             delay={0.15}
-            className="font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-[clamp(2rem,10vw,3rem)] sm:text-5xl md:text-[clamp(3.5rem,9vw,6rem)] lg:text-7xl xl:text-8xl text-neutral-300 break-words"
+            animateOnMount
+            className="frav-web-hero-subtitle font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-[clamp(2rem,10vw,3rem)] sm:text-5xl md:text-[clamp(3.5rem,9vw,6rem)] lg:text-7xl xl:text-8xl text-neutral-300 break-words"
           >
             DEVELOPMENT
           </SplitReveal>
@@ -442,7 +437,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
           className="relative z-10 w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-5 border-t border-white/10 text-xs font-sans text-neutral-400"
         >
           <div className="tracking-widest uppercase flex items-center gap-4">
-            <span className="text-white font-bold">FRAV</span>
+            <span className="text-white font-bold">FRAV AUTOMATION</span>
             <span className="text-neutral-600">/</span>
             <span>WEBSITE DEVELOPER</span>
           </div>
@@ -465,22 +460,6 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
               <span>CALL US</span>
             </a>
 
-            <div
-              role="button"
-              tabIndex={0}
-              onClick={scrollToWork}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  scrollToWork();
-                }
-              }}
-              className="flex items-center gap-2 text-neutral-400 hover:text-white uppercase tracking-widest text-xs pl-2 cursor-pointer transition-colors group select-none py-1.5"
-              aria-label="Scroll to Selected Web Builds"
-            >
-              <span className="group-hover:text-white transition-colors font-medium">EXPLORE WORK</span>
-              <ArrowDown className="w-3.5 h-3.5 animate-bounce text-[#FF4F38] group-hover:translate-y-0.5 transition-transform" />
-            </div>
           </div>
         </motion.div>
       </section>
@@ -498,7 +477,10 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
             WE BUILD WEBSITES WITH CLEAN CODE.
           </SplitReveal>
           <p className="text-base sm:text-xl text-neutral-300 font-light leading-relaxed max-w-2xl">
-            Website development built on solid fundamentals: HTML, CSS, JavaScript, Tailwind CSS, and TypeScript. Fast, responsive, and crafted for real-world production.
+            We design and build premium websites that make your business look established, credible, and ready to grow. From local businesses starting from zero to brands ready for a stronger digital presence, every site is built around clear strategy, thoughtful design, fast performance, and a seamless experience across every screen, combining thoughtful design with solid technical fundamentals. Built with HTML, CSS, JavaScript, Tailwind CSS, and TypeScript, every site is fast, responsive, scalable, and crafted for real-world production.
+          </p>
+          <p className="frav-web-ethos-tagline mt-8 max-w-5xl font-['Syne',sans-serif] font-bold tracking-tight leading-[1.05] text-white">
+            Designed to stand out. Built to perform. Made for your business.
           </p>
         </div>
       </section>
@@ -507,7 +489,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
       <section className="px-6 sm:px-12 md:px-16 lg:px-24 py-16 sm:py-24 bg-[#0A0A0A] border-t border-white/10 relative">
         <div className="flex items-baseline justify-between border-b border-white/10 pb-5 mb-8 sm:mb-12">
           <span className="text-xs font-sans text-[#FF4F38] tracking-widest uppercase font-bold">
-            02 / CAPABILITIES & SKILLS
+            02 / SKILLS STACK
           </span>
           <span className="text-xs font-sans text-neutral-400 tracking-widest uppercase hidden sm:block">
             HTML · CSS · JAVASCRIPT · TAILWIND · TYPESCRIPT
@@ -719,7 +701,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
                 <div
                   key={step.step}
                   onClick={() => setActiveProcessStage(idx)}
-                  className={`p-8 sm:p-10 lg:p-12 rounded-3xl border transition-all duration-500 cursor-pointer flex flex-col justify-between min-h-[480px] sm:min-h-[520px] lg:min-h-[560px] group ${
+                  className={`p-8 sm:p-10 lg:p-8 rounded-3xl border transition-all duration-500 cursor-pointer flex flex-col justify-between min-h-[480px] sm:min-h-[520px] lg:min-h-[560px] group ${
                     isLightTheme
                       ? 'bg-white border-black/10 hover:border-black/20 hover:bg-white'
                       : isActive
@@ -737,7 +719,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
                       </span>
                     </div>
 
-                    <h3 className={`text-3xl sm:text-4xl lg:text-4xl font-black font-['Syne',sans-serif] uppercase tracking-tight mb-3 group-hover:text-[#FF4F38] transition-colors ${isLightTheme ? 'text-neutral-900' : 'text-white'}`}>
+                    <h3 className={`frav-web-process-title text-3xl sm:text-4xl lg:text-4xl font-black font-['Syne',sans-serif] uppercase tracking-tight mb-3 group-hover:text-[#FF4F38] transition-colors ${isLightTheme ? 'text-neutral-900' : 'text-white'}`}>
                       {step.title}
                     </h3>
                     <p className={`text-xs sm:text-sm font-sans uppercase tracking-wider mb-8 sm:mb-12 leading-relaxed ${isLightTheme ? 'text-neutral-600' : 'text-neutral-400'}`}>
@@ -770,7 +752,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
             <span className="text-xs font-sans text-[#FF4F38] uppercase tracking-[0.25em] block font-bold">
               06 / ENGAGEMENT ARCHITECTURE
             </span>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white leading-[1.05] [text-wrap:balance]">
+            <h2 className="frav-web-cta-title text-3xl sm:text-5xl lg:text-6xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white leading-[1.05] [text-wrap:balance]">
               COMMISSION A DIGITAL FLAGSHIP.
             </h2>
             <p className="text-sm sm:text-base text-neutral-400 font-sans font-light leading-relaxed max-w-xl">

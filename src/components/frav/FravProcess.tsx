@@ -28,7 +28,7 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ index, title, description, hi
         {index}
       </span>
       <div>
-        <h3 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-['Syne',sans-serif] tracking-tighter uppercase text-white hover:text-[#FF4F38] transition-colors cursor-default">
+        <h3 className="frav-process-title text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-['Syne',sans-serif] tracking-tighter uppercase text-white hover:text-[#FF4F38] transition-colors cursor-default">
           {title}
         </h3>
         <div
@@ -90,7 +90,7 @@ export const FravProcess: React.FC = () => {
         <div className="flex items-baseline justify-between w-full border-b border-white/10 pb-6">
           <div className="flex items-baseline gap-4">
             <span className="text-xs font-sans text-neutral-400">04 /</span>
-            <h2 className="text-5xl sm:text-7xl lg:text-9xl font-black font-['Syne',sans-serif] tracking-tighter leading-none">
+            <h2 className="frav-process-heading text-5xl sm:text-7xl lg:text-9xl font-black font-['Syne',sans-serif] tracking-tighter leading-none">
               PROCESS
             </h2>
           </div>
@@ -112,7 +112,7 @@ export const FravProcess: React.FC = () => {
 
         {/* Bottom Marker */}
         <div className="flex items-center justify-between text-xs font-sans text-neutral-500 pt-6 border-t border-white/10">
-          <span>FRAV EXECUTION CADENCE</span>
+          <span>FRAV AUTOMATION EXECUTION CADENCE</span>
           <span>SCROLL PROGRESSION ↓</span>
         </div>
       </div>

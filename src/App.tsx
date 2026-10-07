@@ -21,27 +21,27 @@ type CanonicalPageId = 'home' | 'web-development' | 'automation' | 'about-us';
 const pageSeo: Record<CanonicalPageId, { path: string; title: string; description: string }> = {
   home: {
     path: '/',
-    title: 'FRAV Automation Lab | Website Development & AI Automation',
+    title: 'FRAV Automation | Website Development & AI Automation',
     description:
-      'FRAV Automation Lab is a technology studio creating premium websites, interactive digital experiences, AI agents, and business workflow automation.',
+      'FRAV Automation is a technology studio creating premium websites, interactive digital experiences, AI agents, and business workflow automation.',
   },
   'web-development': {
     path: '/web',
-    title: 'Website Development | FRAV Automation Lab',
+    title: 'Website Development | FRAV Automation',
     description:
-      'FRAV designs and builds premium, responsive websites and interactive digital experiences, from visual direction through production-ready development.',
+      'FRAV Automation designs and builds premium, responsive websites and interactive digital experiences, from visual direction through production-ready development.',
   },
   automation: {
     path: '/automation',
-    title: 'AI Automation | FRAV Automation Lab',
+    title: 'AI Automation | FRAV Automation',
     description:
-      'FRAV creates AI agents, workflow automation, integrations, and custom AI systems shaped around real business processes.',
+      'FRAV Automation creates AI agents, workflow automation, integrations, and custom AI systems shaped around real business processes.',
   },
   'about-us': {
     path: '/about',
-    title: 'About FRAV Automation Lab | Web + AI',
+    title: 'About FRAV Automation | Web + AI',
     description:
-      'FRAV Automation Lab is a two-person technology studio focused on premium website development and practical AI automation.',
+      'FRAV Automation is a technology studio focused on premium website development and practical AI automation. We create considered digital experiences and reliable systems that help businesses operate smarter, scale with confidence, and stay ahead in a rapidly changing digital landscape.',
   },
 };
 
@@ -147,7 +147,7 @@ export default function App() {
     const configuredSiteUrl = __FRAV_SITE_URL__ || window.location.origin;
     const siteUrl = configuredSiteUrl.replace(/\/+$/, '');
     const canonicalUrl = `${siteUrl}${seo.path}`;
-    const socialImage = `${siteUrl}/images/frav_hero_1791239384109.jpg`;
+    const socialImage = `${siteUrl}/images/ai_automation_hero_1791238819833.jpg`;
 
     document.title = seo.title;
     setMeta('name', 'description', seo.description);
@@ -157,7 +157,7 @@ export default function App() {
     setMeta('property', 'og:type', 'website');
     setMeta('property', 'og:url', canonicalUrl);
     setMeta('property', 'og:image', socialImage);
-    setMeta('property', 'og:site_name', 'FRAV Automation Lab');
+    setMeta('property', 'og:site_name', 'FRAV Automation');
     setMeta('name', 'twitter:card', 'summary_large_image');
     setMeta('name', 'twitter:title', seo.title);
     setMeta('name', 'twitter:description', seo.description);
@@ -181,7 +181,7 @@ export default function App() {
     structuredData.textContent = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'FRAV Automation Lab',
+      name: 'FRAV Automation',
       url: siteUrl,
       logo: `${siteUrl}/frav-mark.svg`,
       description: pageSeo.home.description,
@@ -240,7 +240,7 @@ export default function App() {
         Skip to content
       </a>
 
-      {/* Navigation: FRAV · WEBSITE DEVELOPMENT / AUTOMATION / ABOUT US · START */}
+      {/* Navigation: FRAV AUTOMATION · WEBSITE DEVELOPMENT / AUTOMATION / ABOUT US · START */}
       <FravNav
         currentPage={currentPage}
         onNavigate={(page) => navigateToPage(page)}
@@ -279,7 +279,7 @@ export default function App() {
         )}
       </main>
 
-      {/* Footer: FRAV AUTOMATION LAB · WEBSITE DEVELOPMENT, AUTOMATION, ABOUT US, CONTACT · PRIVACY / TERMS */}
+      {/* Footer: FRAV AUTOMATION · WEBSITE DEVELOPMENT, AUTOMATION, ABOUT US, CONTACT · PRIVACY / TERMS */}
       <FravFooter
         onNavigate={(page) => navigateToPage(page)}
         onContactClick={() => navigateToPage('about-us', 'contact')}

@@ -61,7 +61,7 @@ export const FravWeb: React.FC<FravWebProps> = ({ onExplore }) => {
           >
             <img
               src="./images/frav_web_canvas_1791239394889.jpg"
-              alt="FRAV Web Canvas"
+              alt="FRAV Automation website design canvas"
               width={1376}
               height={768}
               className="w-full h-full object-cover object-center filter brightness-[0.7] contrast-105"

@@ -33,7 +33,7 @@ export const FravCta: React.FC<FravCtaProps> = ({ onContactClick }) => {
       >
         <img
           src="./images/frav_hero_1791239384109.jpg"
-          alt="FRAV Monolith Visual"
+          alt="FRAV Automation monolith visual"
           width={1376}
           height={768}
           className="w-full h-full object-cover object-center filter brightness-[0.4] contrast-125"
@@ -61,7 +61,7 @@ export const FravCta: React.FC<FravCtaProps> = ({ onContactClick }) => {
         style={{ y: textY }}
         className="relative z-10 my-auto py-12 flex flex-col items-center justify-center text-center"
       >
-        <h2 className="font-['Syne',sans-serif] font-black uppercase tracking-tighter text-5xl sm:text-[8rem] md:text-[11rem] lg:text-[14rem] leading-[0.8] text-white">
+        <h2 className="frav-cta-title font-['Syne',sans-serif] font-black uppercase tracking-tighter text-5xl sm:text-[8rem] md:text-[11rem] lg:text-[14rem] leading-[0.8] text-white">
           CONTACT US
         </h2>
 
@@ -89,7 +89,7 @@ export const FravCta: React.FC<FravCtaProps> = ({ onContactClick }) => {
 
       {/* Bottom Composition Line */}
       <div className="relative z-10 w-full flex items-center justify-between text-xs font-sans text-neutral-500 pt-6 border-t border-white/10">
-        <span>FRAV AUTOMATION LAB</span>
+        <span>FRAV AUTOMATION</span>
         <span>GLOBAL COMMISSIONS</span>
       </div>
     </section>

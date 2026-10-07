@@ -149,7 +149,7 @@ const WorkSceneItem: React.FC<WorkSceneItemProps> = ({ project, index, onClick }
 
         {/* Minimal Project Title Overlay */}
         <div className="light-image-overlay absolute bottom-8 left-8 sm:bottom-12 sm:left-12 z-20 pointer-events-none">
-          <h3 className="text-3xl sm:text-5xl lg:text-7xl font-black font-['Syne',sans-serif] tracking-tight uppercase text-white">
+          <h3 className="frav-work-title text-3xl sm:text-5xl lg:text-7xl font-black font-['Syne',sans-serif] tracking-tight uppercase text-white">
             {project.title}
           </h3>
         </div>

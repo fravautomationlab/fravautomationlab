@@ -8,27 +8,27 @@ import {defineConfig, loadEnv} from 'vite';
 const pageMetadata = [
   {
     path: '/',
-    title: 'FRAV Automation Lab | Website Development & AI Automation',
+    title: 'FRAV Automation | Website Development & AI Automation',
     description:
-      'FRAV Automation Lab is a technology studio creating premium websites, interactive digital experiences, AI agents, and business workflow automation.',
+      'FRAV Automation is a technology studio creating premium websites, interactive digital experiences, AI agents, and business workflow automation.',
   },
   {
     path: '/web',
-    title: 'Website Development | FRAV Automation Lab',
+    title: 'Website Development | FRAV Automation',
     description:
-      'FRAV designs and builds premium, responsive websites and interactive digital experiences, from visual direction through production-ready development.',
+      'FRAV Automation designs and builds premium, responsive websites and interactive digital experiences, from visual direction through production-ready development.',
   },
   {
     path: '/automation',
-    title: 'AI Automation | FRAV Automation Lab',
+    title: 'AI Automation | FRAV Automation',
     description:
-      'FRAV creates AI agents, workflow automation, integrations, and custom AI systems shaped around real business processes.',
+      'FRAV Automation creates AI agents, workflow automation, integrations, and custom AI systems shaped around real business processes.',
   },
   {
     path: '/about',
-    title: 'About FRAV Automation Lab | Web + AI',
+    title: 'About FRAV Automation | Web + AI',
     description:
-      'FRAV Automation Lab is a two-person technology studio focused on premium website development and practical AI automation.',
+      'FRAV Automation is a technology studio focused on premium website development and practical AI automation. We create considered digital experiences and reliable systems that help businesses operate smarter, scale with confidence, and stay ahead in a rapidly changing digital landscape.',
   },
 ];
 
@@ -54,7 +54,7 @@ export default defineConfig(({mode}) => {
   const siteUrl = new URL(
     rawSiteUrl.startsWith('http') ? rawSiteUrl : `https://${rawSiteUrl}`
   ).origin;
-  const socialImage = `${siteUrl}/images/frav_hero_1791239384109.jpg`;
+  const socialImage = `${siteUrl}/images/ai_automation_hero_1791238819833.jpg`;
   const seoFiles = {
     robots: `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`,
     sitemap: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pageMetadata
@@ -110,7 +110,7 @@ export default defineConfig(({mode}) => {
           const organizationSchema = JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Organization',
-            name: 'FRAV Automation Lab',
+            name: 'FRAV Automation',
             url: siteUrl,
             logo: `${siteUrl}/frav-mark.svg`,
             description: pageMetadata[0].description,
@@ -126,7 +126,7 @@ export default defineConfig(({mode}) => {
             html = updateMeta(html, 'property', 'og:title', page.title);
             html = updateMeta(html, 'property', 'og:description', page.description);
             html = updateMeta(html, 'property', 'og:type', 'website');
-            html = updateMeta(html, 'property', 'og:site_name', 'FRAV Automation Lab');
+            html = updateMeta(html, 'property', 'og:site_name', 'FRAV Automation');
             html = updateMeta(html, 'property', 'og:url', `${siteUrl}${page.path}`);
             html = updateMeta(html, 'property', 'og:image', socialImage);
             html = updateMeta(html, 'property', 'og:image:width', '1376');
@@ -135,7 +135,7 @@ export default defineConfig(({mode}) => {
               html,
               'property',
               'og:image:alt',
-              'FRAV architecture studio hero image'
+              'FRAV Automation technology studio hero image'
             );
             html = updateMeta(html, 'name', 'twitter:card', 'summary_large_image');
             html = updateMeta(html, 'name', 'twitter:title', page.title);

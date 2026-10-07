@@ -75,7 +75,7 @@ const AutomationStackCard: React.FC<AutomationStackCardProps> = ({ item, index, 
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20 pointer-events-none" />
 
         <div className="light-image-overlay absolute bottom-6 left-6 right-6 sm:bottom-12 sm:left-12 sm:right-12 z-20 max-w-3xl pointer-events-none">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white mb-3 group-hover:text-[#FF4F38] transition-colors">
+          <h3 className="frav-automation-system-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white mb-3 group-hover:text-[#FF4F38] transition-colors">
             {item.title}
           </h3>
           <p className="text-xs sm:text-sm text-neutral-300 font-light leading-relaxed max-w-xl">
@@ -273,7 +273,8 @@ export const AIAutomationPage: React.FC<AutomationPageProps> = ({ onNavigate, on
         >
           <SplitReveal
             as="h1"
-            className="font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] text-white"
+            animateOnMount
+            className="frav-automation-hero-title font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] text-white"
           >
             AI
           </SplitReveal>
@@ -281,7 +282,8 @@ export const AIAutomationPage: React.FC<AutomationPageProps> = ({ onNavigate, on
           <SplitReveal
             as="div"
             delay={0.2}
-            className="font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-neutral-300 break-words"
+            animateOnMount
+            className="frav-automation-hero-subtitle font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-neutral-300 break-words"
           >
             AUTOMATION
           </SplitReveal>
@@ -576,7 +578,7 @@ export const AIAutomationPage: React.FC<AutomationPageProps> = ({ onNavigate, on
             <span className="text-xs font-sans text-[#FF4F38] uppercase tracking-[0.25em] block font-bold">
               05 / ENGAGEMENT ARCHITECTURE
             </span>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white leading-[1.05] [text-wrap:balance]">
+            <h2 className="frav-automation-cta-title text-3xl sm:text-5xl lg:text-6xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white leading-[1.05] [text-wrap:balance]">
               READY TO DEPLOY AUTONOMOUS AGENTS?
             </h2>
             <p className="text-sm sm:text-base text-neutral-400 font-sans font-light leading-relaxed max-w-xl">
