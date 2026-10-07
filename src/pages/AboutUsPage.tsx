@@ -168,8 +168,8 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.email.trim() || !formData.email.includes('@')) {
-      setError('Please provide your name and a valid email address.');
+    if (!formData.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email.trim()) || !formData.message.trim()) {
+      setError('Please provide your name, a valid email address, and a project message.');
       return;
     }
     setError('');
@@ -644,6 +644,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                         <input
                           type="email"
                           required
+                          maxLength={254}
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="m.vance@company.com"
@@ -673,6 +674,8 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                       </label>
                       <textarea
                         rows={4}
+                        required
+                        maxLength={5000}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         placeholder="Outline your objectives, target performance requirements, or operational bottlenecks..."

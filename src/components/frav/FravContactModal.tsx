@@ -36,8 +36,8 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.email.trim() || !formData.email.includes('@')) {
-      setError('Please provide a name and valid email address.');
+    if (!formData.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email.trim()) || !formData.note.trim()) {
+      setError('Please provide your name, a valid email address, and a message.');
       return;
     }
     setError('');
@@ -169,6 +169,7 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
                   <input
                     type="text"
                     required
+                    maxLength={120}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Your name or company"
@@ -184,6 +185,7 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
                   <input
                     type="email"
                     required
+                    maxLength={254}
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="hello@domain.com"
@@ -198,6 +200,8 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
                   </label>
                   <textarea
                     rows={3}
+                    required
+                    maxLength={5000}
                     value={formData.note}
                     onChange={(e) => setFormData({ ...formData, note: e.target.value })}
                     placeholder="Brief objective, timeline, or architecture..."
@@ -209,7 +213,7 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 rounded-xl bg-white hover:bg-[#FF4F38] text-black hover:text-white font-['Syne',sans-serif] font-black text-sm uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-98"
+                  className="w-full py-4 rounded-xl bg-white hover:bg-[#FF4F38] text-black hover:text-white font-['Syne',sans-serif] font-black text-sm uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span>{isSubmitting ? 'SENDING...' : 'SEND BRIEF'}</span>
                   {!isSubmitting && <ArrowUpRight className="w-4 h-4" />}

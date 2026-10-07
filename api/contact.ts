@@ -22,7 +22,9 @@ interface ContactPayload {
 }
 
 const maxRequestBytes = 12_000;
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const recipient = 'admin@fravautomationlab.com';
+const sender = 'Website <noreply@fravautomationlab.com>';
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -53,6 +55,11 @@ const respond = (response: ContactResponse, status: number, body: unknown) => {
   response.json(body);
 };
 
+const getHeader = (headers: ContactRequest['headers'], name: string) => {
+  const value = headers[name];
+  return Array.isArray(value) ? value[0] : value;
+};
+
 export default async function handler(request: ContactRequest, response: ContactResponse) {
   if (request.method !== 'POST') {
     response.setHeader('Allow', 'POST');
@@ -60,13 +67,27 @@ export default async function handler(request: ContactRequest, response: Contact
     return;
   }
 
-  const contentType = request.headers['content-type'];
-  if (typeof contentType !== 'string' || !contentType.toLowerCase().startsWith('application/json')) {
+  const origin = getHeader(request.headers, 'origin');
+  const host = getHeader(request.headers, 'host');
+  if (origin) {
+    try {
+      if (!host || new URL(origin).host.toLowerCase() !== host.toLowerCase()) {
+        respond(response, 403, { error: 'This form submission is not allowed.' });
+        return;
+      }
+    } catch {
+      respond(response, 403, { error: 'This form submission is not allowed.' });
+      return;
+    }
+  }
+
+  const contentType = getHeader(request.headers, 'content-type');
+  if (typeof contentType !== 'string' || !/^application\/json(?:\s*;|$)/i.test(contentType)) {
     respond(response, 415, { error: 'Send the form as JSON.' });
     return;
   }
 
-  const contentLength = request.headers['content-length'];
+  const contentLength = getHeader(request.headers, 'content-length');
   if (typeof contentLength === 'string' && Number(contentLength) > maxRequestBytes) {
     respond(response, 413, { error: 'The form submission is too large.' });
     return;
@@ -74,6 +95,10 @@ export default async function handler(request: ContactRequest, response: Contact
 
   if (!isRecord(request.body)) {
     respond(response, 400, { error: 'Invalid form submission.' });
+    return;
+  }
+  if (new TextEncoder().encode(JSON.stringify(request.body)).byteLength > maxRequestBytes) {
+    respond(response, 413, { error: 'The form submission is too large.' });
     return;
   }
 
@@ -91,7 +116,7 @@ export default async function handler(request: ContactRequest, response: Contact
       company: readText(request.body.company, 'company', 160),
       focus: readText(request.body.focus, 'service selection', 40),
       timeline: readText(request.body.timeline, 'timeline', 120),
-      message: readText(request.body.message, 'message', 5_000, false, true),
+      message: readText(request.body.message, 'message', 5_000, true, true),
       website: readText(request.body.website, 'website', 200),
     };
     if (payload.focus && !['WEB', 'AUTOMATION', 'BOTH'].includes(payload.focus)) {
@@ -115,9 +140,7 @@ export default async function handler(request: ContactRequest, response: Contact
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const recipient = process.env.CONTACT_EMAIL;
-  const sender = process.env.RESEND_FROM_EMAIL;
-  if (!apiKey || !recipient || !sender) {
+  if (!apiKey) {
     console.error('Contact form email configuration is incomplete.');
     respond(response, 503, { error: 'Email delivery is not configured yet. Please email us directly.' });
     return;
@@ -134,23 +157,30 @@ export default async function handler(request: ContactRequest, response: Contact
     payload.message || '(No project details provided.)',
   ].filter((line): line is string => Boolean(line));
 
-  const resendResponse = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      from: sender,
-      to: [recipient],
-      reply_to: payload.email,
-      subject: `New ${payload.formType === 'about-page' ? 'website' : 'contact'} inquiry`,
-      text: details.join('\n'),
-    }),
-  });
+  try {
+    const resendResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      signal: AbortSignal.timeout(10_000),
+      body: JSON.stringify({
+        from: sender,
+        to: [recipient],
+        reply_to: payload.email,
+        subject: `New Website Inquiry — ${payload.name}`,
+        text: details.join('\n'),
+      }),
+    });
 
-  if (!resendResponse.ok) {
-    console.error(`Contact form email provider returned status ${resendResponse.status}.`);
+    if (!resendResponse.ok) {
+      console.error(`Contact form email provider returned status ${resendResponse.status}.`);
+      respond(response, 502, { error: 'We could not send your message. Please try again or email us directly.' });
+      return;
+    }
+  } catch {
+    console.error('Contact form email provider request failed.');
     respond(response, 502, { error: 'We could not send your message. Please try again or email us directly.' });
     return;
   }
