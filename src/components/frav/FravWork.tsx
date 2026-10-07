@@ -114,7 +114,7 @@ const WorkSceneItem: React.FC<WorkSceneItemProps> = ({ project, index, onClick }
       {/* Top Scene Label: e.g. 01 / WEB */}
       <div className="flex items-baseline justify-between mb-6 pb-4 border-b border-white/10 text-xs font-sans tracking-widest text-neutral-400">
         <span className="text-white font-bold">
-          {project.index} / {project.discipline}
+          {project.index} / {project.discipline === 'WEB' ? 'WEBSITE DEVELOPMENT' : project.discipline}
         </span>
         <span className="group-hover:text-white transition-colors flex items-center gap-1">
           VIEW SCENE <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

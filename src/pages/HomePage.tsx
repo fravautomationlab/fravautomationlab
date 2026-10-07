@@ -1,5 +1,6 @@
 import React from 'react';
 import { FravHero } from '../components/frav/FravHero';
+import { FravAbout } from '../components/frav/FravAbout';
 import { FravWeb } from '../components/frav/FravWeb';
 import { FravWork } from '../components/frav/FravWork';
 import { FravAutomation } from '../components/frav/FravAutomation';
@@ -22,6 +23,9 @@ export const HomePage: React.FC<HomePageProps> = ({
     <main className="flex-1 flex flex-col bg-[#0A0A0A] text-white">
       {/* HERO: FRAV · WEB + AUTOMATION · START */}
       <FravHero onStartClick={onStartClick} />
+
+      {/* ABOUT THE STUDIO */}
+      <FravAbout onExplore={() => onNavigate('about-us')} />
 
       {/* SECTION 01: WEB (Image scale -> crop -> expand -> transition · DESIGN / BUILD / HOST / CARE) */}
       <FravWeb onExplore={() => onNavigate('web-development')} />

@@ -226,7 +226,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
   const projects = [
     {
       num: '01',
-      meta: 'WEB DEVELOPMENT / TYPESCRIPT / TAILWIND',
+      meta: 'WEBSITE DEVELOPMENT / TYPESCRIPT / TAILWIND',
       title: 'VESPER ARCHITECTURE',
       year: '2025',
       description: 'A responsive digital home for an architecture practice.',
@@ -237,7 +237,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
     },
     {
       num: '02',
-      meta: 'WEB DEVELOPMENT / JAVASCRIPT / CSS',
+      meta: 'WEBSITE DEVELOPMENT / JAVASCRIPT / CSS',
       title: 'ATELIER KROMA',
       year: '2025',
       description: 'An editorial portfolio with considered motion and layout.',
@@ -248,7 +248,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
     },
     {
       num: '03',
-      meta: 'WEB DEVELOPMENT / FULL STACK / APIS',
+      meta: 'WEBSITE DEVELOPMENT / FULL STACK / APIS',
       title: 'MONOLITH PROTOCOL',
       year: '2026',
       description: 'A production application built around connected data.',
@@ -325,10 +325,10 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
       role: 'Chief Technology Officer',
       company: 'Lumiere Digital',
       quote:
-        'High-standard web development. Strict TypeScript contracts, clean CSS layout models, and rock-solid code maintainability. An indispensable development partner.',
+        'High-standard website development. Strict TypeScript contracts, clean CSS layout models, and rock-solid code maintainability. An indispensable development partner.',
       avatar: './images/review_lisa_1791232186843.jpg',
       initials: 'LH',
-      tag: 'TYPESCRIPT · WEB DEVELOPMENT',
+      tag: 'TYPESCRIPT · WEBSITE DEVELOPMENT',
       stars: 5,
     },
   ];
@@ -378,7 +378,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
       {/* 1. WEB — HERO */}
       <section
         ref={heroRef}
-        aria-label="Web Development Hero"
+        aria-label="Website Development Hero"
         className="light-image-overlay relative min-h-[90vh] sm:min-h-screen w-full flex flex-col justify-between pt-28 pb-10 sm:pb-14 px-6 sm:px-12 md:px-16 lg:px-24 overflow-hidden bg-[#0A0A0A] select-none"
       >
         {/* Full-screen website/interface visual with scroll expansion */}
@@ -413,7 +413,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
           </div>
         </motion.div>
 
-        {/* Large Typography: WEB DEVELOPMENT */}
+        {/* Large Typography: WEBSITE DEVELOPMENT */}
         <motion.div
           style={{ y: isMobile ? 0 : heroTextY, opacity: isMobile ? 1 : heroTextOpacity }}
           className="relative z-10 my-auto py-8 sm:py-12 flex flex-col items-start w-full overflow-hidden"
@@ -422,7 +422,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
             as="h1"
             className="font-['Syne',sans-serif] font-black uppercase tracking-tighter leading-[0.85] text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[11rem] text-white"
           >
-            WEB
+            WEBSITE
           </SplitReveal>
 
           <SplitReveal
@@ -498,7 +498,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
             WE BUILD WEBSITES WITH CLEAN CODE.
           </SplitReveal>
           <p className="text-base sm:text-xl text-neutral-300 font-light leading-relaxed max-w-2xl">
-            Web development built on solid fundamentals: HTML, CSS, JavaScript, Tailwind CSS, and TypeScript. Fast, responsive, and crafted for real-world production.
+            Website development built on solid fundamentals: HTML, CSS, JavaScript, Tailwind CSS, and TypeScript. Fast, responsive, and crafted for real-world production.
           </p>
         </div>
       </section>
@@ -700,7 +700,7 @@ export const WebDevPage: React.FC<WebDevPageProps> = ({ onNavigate, onStartClick
         </div>
       </section>
 
-      {/* 6. WEB — PROCESS (4-Stage Web Development Delivery Pipeline) */}
+      {/* 6. WEBSITE DEVELOPMENT — PROCESS (4-Stage Delivery Pipeline) */}
       <section className="px-6 sm:px-12 md:px-16 lg:px-24 py-20 sm:py-32 bg-[#0A0A0A] border-t border-white/10">
         <div className="w-full">
           <div className="flex items-baseline justify-between border-b border-white/10 pb-6 mb-12 sm:mb-16">

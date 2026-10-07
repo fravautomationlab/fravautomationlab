@@ -25,7 +25,7 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
   }, []);
 
   const navLinks: { label: string; page: FravPageId }[] = [
-    { label: 'WEB DEVELOPMENT', page: 'web-development' },
+    { label: 'WEBSITE DEVELOPMENT', page: 'web-development' },
     { label: 'AUTOMATION', page: 'automation' },
     { label: 'ABOUT US', page: 'about-us' },
   ];
@@ -80,7 +80,7 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
             FRAV
           </a>
 
-          {/* Center/Right: WEB DEVELOPMENT / AUTOMATION / ABOUT US */}
+          {/* Center/Right: WEBSITE DEVELOPMENT / AUTOMATION / ABOUT US */}
           <nav
             aria-label="Studio Navigation"
             className="hidden lg:flex items-center gap-8 text-xs font-sans tracking-widest text-neutral-400 uppercase"
@@ -199,7 +199,7 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
                 onClick={(event) => handleLinkClick(event, 'web-development')}
                 className={`text-left transition-colors ${isLinkActive('web-development') ? 'text-[#FF4F38]' : 'hover:text-neutral-400'}`}
               >
-                WEB DEVELOPMENT
+                WEBSITE DEVELOPMENT
               </a>
               <a
                 href="/automation"

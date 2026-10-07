@@ -8,13 +8,13 @@ import {defineConfig, loadEnv} from 'vite';
 const pageMetadata = [
   {
     path: '/',
-    title: 'FRAV Automation Lab | Web Development & AI Automation',
+    title: 'FRAV Automation Lab | Website Development & AI Automation',
     description:
       'FRAV Automation Lab is a technology studio creating premium websites, interactive digital experiences, AI agents, and business workflow automation.',
   },
   {
     path: '/web',
-    title: 'Web Development | FRAV Automation Lab',
+    title: 'Website Development | FRAV Automation Lab',
     description:
       'FRAV designs and builds premium, responsive websites and interactive digital experiences, from visual direction through production-ready development.',
   },
@@ -28,7 +28,7 @@ const pageMetadata = [
     path: '/about',
     title: 'About FRAV Automation Lab | Web + AI',
     description:
-      'FRAV Automation Lab is a two-person technology studio focused on premium web development and practical AI automation.',
+      'FRAV Automation Lab is a two-person technology studio focused on premium website development and practical AI automation.',
   },
 ];
 

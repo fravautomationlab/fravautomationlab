@@ -64,7 +64,7 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
       {/* Top spacer */}
       <div className="relative z-10 w-full" />
 
-      {/* Centerpiece: Primary Visual Element — FRAV */}
+      {/* Centerpiece: Primary Visual Element — FRAV AUTOMATION */}
       <motion.div
         style={{ y: textY, opacity: textOpacity }}
         className="relative z-10 w-full text-center flex flex-col items-center justify-center my-auto py-8"
@@ -73,21 +73,25 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.2, ease: fravEase }}
-          className="w-full font-['Syne',sans-serif] font-black uppercase text-center tracking-tighter leading-[0.82] text-[clamp(3rem,18vw,7rem)] sm:text-9xl md:text-[clamp(8rem,18vw,13rem)] lg:text-[clamp(10rem,17vw,17rem)] xl:text-[22rem] text-white"
+          className="frav-hero-title w-full text-balance font-['Syne',sans-serif] font-black uppercase text-center tracking-tighter leading-[0.82] text-[clamp(1.35rem,7.2vw,8.5rem)] text-white"
         >
-          FRAV
+          <span className="whitespace-nowrap">FRAV</span>{' '}
+          <span className="whitespace-nowrap">AUTOMATION</span>
         </motion.h1>
 
-        {/* Under it: WEB + AUTOMATION */}
-        <motion.div
+        {/* Supporting line under the primary heading */}
+        <motion.p
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.1, delay: 0.45, ease: fravEase }}
           style={{ y: subY }}
-          className="mt-4 sm:mt-6 text-sm sm:text-base md:text-xl font-sans tracking-[0.3em] sm:tracking-[0.4em] uppercase text-neutral-300"
+          className="mt-4 sm:mt-6 max-w-full text-balance text-xs sm:text-sm md:text-base font-sans tracking-[0.2em] sm:tracking-[0.3em] uppercase text-neutral-300"
         >
-          WEB + AUTOMATION
-        </motion.div>
+          Business Digitalization &amp; Automation
+        </motion.p>
+        <h2 className="frav-hero-subheading mt-3 sm:mt-4 max-w-full text-balance text-[clamp(0.9rem,2.2vw,1.5rem)] font-sans font-semibold tracking-[0.12em] sm:tracking-[0.2em] uppercase text-white/90">
+          Website Design &amp; Website Development
+        </h2>
       </motion.div>
 
       {/* Bottom Bar: Single CTA START + Down indicator */}
@@ -128,7 +132,7 @@ export const FravHero: React.FC<FravHeroProps> = ({ onStartClick }) => {
           type="button"
           onClick={scrollDown}
           className="ml-auto shrink-0 p-1 sm:p-2 text-neutral-400 hover:text-white transition-colors cursor-pointer"
-          aria-label="Scroll to Section 01 Web"
+          aria-label="Scroll to Section 01 Website Development"
         >
           <ArrowDown className="w-4 h-4 animate-bounce" />
         </button>

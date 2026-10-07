@@ -337,7 +337,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
               className="md:col-span-6"
             >
               <p className="text-base sm:text-lg text-neutral-400 font-light leading-relaxed">
-                By uniting bespoke web development with autonomous engineering, we deliver platforms that command absolute presence on the surface while running autonomously behind the scenes.
+                By uniting bespoke website development with autonomous engineering, we deliver platforms that command absolute presence on the surface while running autonomously behind the scenes.
               </p>
             </motion.div>
           </div>
@@ -373,7 +373,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                   </span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-black font-['Syne',sans-serif] uppercase tracking-tight text-white mb-6">
-                  WEB DEVELOPMENT
+                  WEBSITE DEVELOPMENT
                 </h3>
                 <p className="text-base sm:text-lg text-neutral-400 font-light leading-relaxed mb-8">
                   Fast, responsive websites built with clean code. Specialized in HTML, CSS, JavaScript, Tailwind CSS, and TypeScript for real-world production.
@@ -381,7 +381,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
               </div>
 
               <div className="pt-6 border-t border-white/10 flex items-center justify-between text-xs font-sans text-neutral-400 group-hover:text-white transition-colors">
-                <span>EXPLORE WEB DISCIPLINE</span>
+                <span>EXPLORE WEBSITE DEVELOPMENT</span>
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </div>
             </div>
@@ -586,7 +586,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                                 : 'bg-neutral-900 border border-white/10 text-neutral-400 hover:text-white'
                             }`}
                           >
-                            {item === 'BOTH' ? 'WEB + AUTO' : item}
+                            {item === 'BOTH' ? 'WEBSITE DEVELOPMENT + AUTO' : item === 'WEB' ? 'WEBSITE DEVELOPMENT' : item}
                           </MagneticButton>
                         ))}
                       </div>

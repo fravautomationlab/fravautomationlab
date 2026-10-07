@@ -23,26 +23,26 @@ export const FravWeb: React.FC<FravWebProps> = ({ onExplore }) => {
   );
 
   // Progressive word reveals: DESIGN -> BUILD -> HOST -> CARE
-  const word1Opacity = useTransform(scrollYProgress, [0.1, 0.25], [0.15, 1]);
-  const word2Opacity = useTransform(scrollYProgress, [0.3, 0.45], [0.15, 1]);
-  const word3Opacity = useTransform(scrollYProgress, [0.5, 0.65], [0.15, 1]);
-  const word4Opacity = useTransform(scrollYProgress, [0.7, 0.85], [0.15, 1]);
+  const word1Opacity = useTransform(scrollYProgress, [0.1, 0.25], [0.7, 1]);
+  const word2Opacity = useTransform(scrollYProgress, [0.3, 0.45], [0.7, 1]);
+  const word3Opacity = useTransform(scrollYProgress, [0.5, 0.65], [0.7, 1]);
+  const word4Opacity = useTransform(scrollYProgress, [0.7, 0.85], [0.7, 1]);
 
   return (
     <section
       id="web"
       ref={containerRef}
-      aria-label="Section 01 WEB"
+      aria-label="Section 01 Website Development"
       className="relative w-full h-[240vh] bg-[#0A0A0A] text-white"
     >
       {/* Sticky Full-Viewport Composition */}
-      <div className="light-image-overlay sticky top-0 w-full h-screen overflow-hidden flex flex-col justify-between p-6 sm:p-12 md:p-16 lg:p-24">
+      <div className="frav-web-content light-image-overlay sticky top-0 w-full h-screen overflow-hidden flex flex-col justify-between p-6 sm:p-12 md:p-16 lg:p-24">
         {/* Top Header: Section Index + Large Typography: WEB */}
-        <div className="relative z-20 flex items-baseline justify-between w-full border-b border-white/10 pb-6">
+        <div className="relative z-20 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 w-full border-b border-white/10 pb-6">
           <div className="flex items-baseline gap-4">
             <span className="text-xs font-sans text-neutral-400">01 /</span>
-            <h2 className="text-5xl sm:text-7xl lg:text-9xl font-black font-['Syne',sans-serif] tracking-tighter leading-none">
-              WEB
+            <h2 className="frav-web-section-title text-balance text-[clamp(1.15rem,3vw,4rem)] font-black font-['Syne',sans-serif] tracking-tighter leading-none">
+              WEBSITE DEVELOPMENT
             </h2>
           </div>
           <span className="text-xs font-sans text-neutral-400 tracking-widest uppercase hidden sm:block">
@@ -75,33 +75,34 @@ export const FravWeb: React.FC<FravWebProps> = ({ onExplore }) => {
             />
           </motion.div>
         </div>
+        <div className="frav-web-light-scrim absolute inset-0 z-[15] pointer-events-none" aria-hidden="true" />
 
         {/* The 4 Words Revealed on Scroll: DESIGN / BUILD / HOST / CARE */}
-        <div className="relative z-20 w-full flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 sm:gap-4 py-8">
+        <div className="frav-web-list relative z-20 w-full flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 sm:gap-4 py-8">
           <motion.div style={{ opacity: word1Opacity }} className="transition-opacity">
-            <span className="block text-[10px] font-sans text-neutral-500 mb-1">01</span>
+            <span className="block text-[10px] font-sans text-neutral-300 mb-1">01</span>
             <span className="text-[clamp(1.75rem,5vw,2rem)] sm:text-[clamp(2rem,4.5vw,3rem)] lg:text-[clamp(3rem,5vw,4.5rem)] xl:text-7xl font-bold font-['Syne',sans-serif] tracking-tight">
               DESIGN
             </span>
           </motion.div>
 
           <motion.div style={{ opacity: word2Opacity }} className="transition-opacity">
-            <span className="block text-[10px] font-sans text-neutral-500 mb-1">02</span>
+            <span className="block text-[10px] font-sans text-neutral-300 mb-1">02</span>
             <span className="text-[clamp(1.75rem,5vw,2rem)] sm:text-[clamp(2rem,4.5vw,3rem)] lg:text-[clamp(3rem,5vw,4.5rem)] xl:text-7xl font-bold font-['Syne',sans-serif] tracking-tight">
               BUILD
             </span>
           </motion.div>
 
           <motion.div style={{ opacity: word3Opacity }} className="transition-opacity">
-            <span className="block text-[10px] font-sans text-neutral-500 mb-1">03</span>
+            <span className="block text-[10px] font-sans text-neutral-300 mb-1">03</span>
             <span className="text-[clamp(1.75rem,5vw,2rem)] sm:text-[clamp(2rem,4.5vw,3rem)] lg:text-[clamp(3rem,5vw,4.5rem)] xl:text-7xl font-bold font-['Syne',sans-serif] tracking-tight">
               HOST
             </span>
           </motion.div>
 
           <motion.div style={{ opacity: word4Opacity }} className="transition-opacity flex flex-col items-start sm:items-end">
-            <span className="block text-[10px] font-sans text-neutral-500 mb-1">04</span>
-            <span className="text-[clamp(1.75rem,5vw,2rem)] sm:text-[clamp(2rem,4.5vw,3rem)] lg:text-[clamp(3rem,5vw,4.5rem)] xl:text-7xl font-bold font-['Syne',sans-serif] tracking-tight text-[#FF4F38] mb-2">
+            <span className="block text-[10px] font-sans text-neutral-300 mb-1">04</span>
+            <span className="frav-web-care text-[clamp(1.75rem,5vw,2rem)] sm:text-[clamp(2rem,4.5vw,3rem)] lg:text-[clamp(3rem,5vw,4.5rem)] xl:text-7xl font-bold font-['Syne',sans-serif] tracking-tight text-[#FF4F38] mb-2">
               CARE
             </span>
             {onExplore && (
@@ -110,7 +111,7 @@ export const FravWeb: React.FC<FravWebProps> = ({ onExplore }) => {
                 onClick={onExplore}
                 className="text-xs font-sans tracking-widest text-neutral-400 hover:text-white uppercase transition-colors flex items-center gap-1 cursor-pointer pt-2"
               >
-                <span>WEB DEVELOPMENT</span>
+                <span>WEBSITE DEVELOPMENT</span>
                 <span>→</span>
               </button>
             )}

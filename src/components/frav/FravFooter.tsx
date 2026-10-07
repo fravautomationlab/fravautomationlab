@@ -27,7 +27,7 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
 
   const directoryLinks: { label: string; page: FravPageId; num: string }[] = [
     { num: '01', label: 'HOME', page: 'home' },
-    { num: '02', label: 'WEB DEVELOPMENT', page: 'web-development' },
+    { num: '02', label: 'WEBSITE DEVELOPMENT', page: 'web-development' },
     { num: '03', label: 'AUTOMATION & AGENTS', page: 'automation' },
     { num: '04', label: 'ABOUT US & DOCTRINE', page: 'about-us' },
   ];

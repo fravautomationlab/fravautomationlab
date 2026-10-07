@@ -122,7 +122,7 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
                             : 'bg-neutral-900/60 text-neutral-400 border-white/10 hover:text-white'
                         }`}
                       >
-                        {item}
+                        {item === 'WEB' ? 'WEBSITE DEVELOPMENT' : item}
                       </button>
                     ))}
                   </div>

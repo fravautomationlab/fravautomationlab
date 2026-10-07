@@ -57,7 +57,7 @@ export const ContactPage: React.FC = () => {
             Project Scoping.
           </h1>
           <p className="text-lg sm:text-xl text-neutral-600 leading-relaxed max-w-2xl">
-            Currently accepting select full-stack web development builds, autonomous AI automation contracts, and engineering advisory.
+            Currently accepting select full-stack website development builds, autonomous AI automation contracts, and engineering advisory.
           </p>
         </motion.div>
       </section>
