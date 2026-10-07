@@ -118,8 +118,22 @@ export const FravEntranceLoader: React.FC<FravEntranceLoaderProps> = ({ onComple
             </div>
           </div>
 
-          {/* Centerpiece: Counter & Kinetic Status */}
+          {/* Centerpiece: Large Wordmark, Counter & Kinetic Status */}
           <div className="relative z-10 w-full max-w-full mx-auto flex flex-col items-center justify-center my-auto text-center space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: fravExpoEase }}
+              className="flex flex-col items-center"
+            >
+              <div className="font-['Syne',sans-serif] text-[clamp(3rem,12vw,12rem)] font-black uppercase leading-[0.76] tracking-[-0.08em] text-white">
+                FRAV
+              </div>
+              <div className="mt-1 text-[clamp(0.7rem,1.9vw,1.35rem)] font-sans font-medium uppercase tracking-[0.52em] text-neutral-300">
+                AUTOMATION
+              </div>
+            </motion.div>
+
             {/* Kinetic Progress Metric Lockup */}
             <div className="flex flex-col items-center gap-4 w-full max-w-md">
               <div className="flex items-baseline justify-between w-full text-xs font-sans tracking-widest uppercase">
