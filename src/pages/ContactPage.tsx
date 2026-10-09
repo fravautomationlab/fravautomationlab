@@ -104,11 +104,11 @@ export const ContactPage: React.FC = () => {
                   Telephone
                 </span>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+16504395756"
                   className="text-base font-bold text-neutral-900 hover:text-neutral-600 transition-colors font-sans flex items-center gap-2"
                 >
                   <Phone className="w-4 h-4 text-amber-500" />
-                  +1 (234) 567-890
+                  +1 (650) 439-5756
                 </a>
               </div>
             </div>

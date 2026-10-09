@@ -77,7 +77,7 @@ export const FravCta: React.FC<FravCtaProps> = ({ onContactClick }) => {
           </button>
 
           <a
-            href="tel:+41442114890"
+            href="tel:+16504395756"
             className="group px-8 sm:px-10 py-4 sm:py-5 rounded-full border border-white/20 hover:border-white hover:bg-white/10 text-white font-['Syne',sans-serif] font-black text-sm sm:text-base tracking-widest uppercase transition-all duration-300 cursor-pointer shadow-2xl flex items-center gap-3"
             aria-label="Call studio"
           >

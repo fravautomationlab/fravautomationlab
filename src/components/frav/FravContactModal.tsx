@@ -224,12 +224,12 @@ export const FravContactModal: React.FC<FravContactModalProps> = ({ isOpen, onCl
             {/* Direct Channel */}
             <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between text-xs font-sans text-neutral-400 gap-3">
               <a
-                href="tel:+41442114890"
+                href="tel:+16504395756"
                 className="px-4 py-2 rounded-full border border-white/20 hover:border-white hover:bg-white/10 text-white font-bold transition-all flex items-center justify-center gap-2 self-start"
                 aria-label="Call studio"
               >
                 <Phone className="w-3.5 h-3.5 text-[#FF4F38]" />
-                <span>CALL US: +41 44 211 48 90</span>
+                <span>CALL US: +1 (650) 439-5756</span>
               </a>
               <div className="flex items-center gap-2 text-[11px] text-neutral-500">
                 <span>EMAIL:</span>

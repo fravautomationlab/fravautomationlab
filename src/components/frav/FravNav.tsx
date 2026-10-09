@@ -129,7 +129,7 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
             </button>
 
             <a
-              href="tel:+41442114890"
+              href="tel:+16504395756"
               className="text-xs font-sans tracking-wider text-white uppercase px-3.5 py-2 rounded-full border border-white/20 hover:border-white hover:bg-white/10 transition-all cursor-pointer flex items-center gap-1.5"
               aria-label="Call studio"
             >
@@ -160,7 +160,7 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
               )}
             </button>
             <a
-              href="tel:+41442114890"
+              href="tel:+16504395756"
               className="p-2 text-white border border-white/20 rounded-full hover:border-white flex items-center justify-center"
               aria-label="Call studio"
             >
@@ -229,11 +229,11 @@ export const FravNav: React.FC<FravNavProps> = ({ currentPage, onNavigate, onSta
                   <span>→</span>
                 </button>
                 <a
-                  href="tel:+41442114890"
+                  href="tel:+16504395756"
                   className="text-left text-white text-base font-bold flex items-center gap-2.5 py-1"
                 >
                   <Phone className="w-4 h-4 text-[#FF4F38]" />
-                  <span>CALL US: +41 44 211 48 90</span>
+                  <span>CALL US: +1 (650) 439-5756</span>
                 </a>
               </div>
             </div>

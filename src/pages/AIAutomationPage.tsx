@@ -319,7 +319,7 @@ export const AIAutomationPage: React.FC<AutomationPageProps> = ({ onNavigate, on
               </MagneticButton>
 
               <a
-                href="tel:+41442114890"
+                href="tel:+16504395756"
                 className="text-white uppercase tracking-wider px-4 py-2 rounded-full border border-white/20 hover:border-white hover:bg-white/10 transition-all text-xs font-sans flex items-center gap-1.5"
                 aria-label="Call studio"
               >
@@ -596,12 +596,12 @@ export const AIAutomationPage: React.FC<AutomationPageProps> = ({ onNavigate, on
             </MagneticButton>
 
             <a
-              href="tel:+41442114890"
+              href="tel:+16504395756"
               className="px-7 py-4.5 rounded-full border border-white/20 hover:border-white hover:bg-white/10 text-white font-['Syne',sans-serif] font-bold text-xs sm:text-sm uppercase tracking-widest transition-all cursor-pointer flex items-center justify-center gap-2.5"
               aria-label="Call studio"
             >
               <Phone className="w-4 h-4 text-[#FF4F38]" />
-              <span>CALL: +41 44 211 48 90</span>
+              <span>CALL: +1 (650) 439-5756</span>
             </a>
           </div>
         </div>

@@ -165,21 +165,23 @@ export const FravFooter: React.FC<FravFooterProps> = ({ onNavigate, onContactCli
                   DIRECT SIGNAL / TELEPHONE
                 </span>
                 <a
-                  href="tel:+41442114890"
+                  href="tel:+16504395756"
                   className="text-white hover:text-[#FF4F38] text-sm font-sans font-bold transition-colors flex items-center justify-between group"
                 >
-                  <span>+41 44 211 48 90</span>
+                  <span>+1 (650) 439-5756</span>
                   <Phone className="w-3.5 h-3.5 text-neutral-400 group-hover:text-[#FF4F38] transition-colors" />
                 </a>
               </div>
 
-              {/* Global studio coordinates */}
+              {/* Service address */}
               <div className="pt-2 text-xs font-sans text-neutral-400 space-y-1">
                 <div className="flex items-start gap-2">
                   <MapPin className="w-3.5 h-3.5 text-[#FF4F38] shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-white font-medium block">GLOBAL STUDIO</span>
-                    <span className="text-neutral-400 text-[11px] block">REMOTE-FIRST CREATIVE + ENGINEERING</span>
+                    <span className="text-white font-medium block">SERVICE ADDRESS</span>
+                    <span className="text-neutral-400 text-[11px] block">1005 Fieldstone Lane</span>
+                    <span className="text-neutral-400 text-[11px] block">Hermon, ME 04401</span>
+                    <span className="text-neutral-400 text-[11px] block">United States</span>
                   </div>
                 </div>
               </div>

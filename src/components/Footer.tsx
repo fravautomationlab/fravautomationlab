@@ -49,10 +49,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </p>
               <p>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+16504395756"
                   className="hover:text-white transition-colors focus-visible:underline"
                 >
-                  +1 (234) 567-890
+                  +1 (650) 439-5756
                 </a>
               </p>
             </div>

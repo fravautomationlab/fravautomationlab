@@ -241,7 +241,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
             <span className="text-white">FRAV AUTOMATION</span>
           </div>
           <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest hidden md:block">
-            EST. 2024 · LONDON / GLOBAL REMOTE
+            EST. 2024 · HERMON, ME / UNITED STATES
           </span>
         </motion.div>
 
@@ -285,7 +285,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
             </MagneticButton>
 
             <a
-              href="tel:+41442114890"
+              href="tel:+16504395756"
               className="text-xs sm:text-sm font-sans tracking-wider text-white uppercase px-4 py-2.5 rounded-full border border-white/20 hover:border-white hover:bg-white/10 transition-all flex items-center gap-2"
               aria-label="Call studio"
             >
@@ -317,7 +317,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
             '100% CODE OWNERSHIP',
             'ZERO TEMPLATE COLLAGES',
             'DIRECT ARCHITECT PARTNERSHIP',
-            'LONDON · GLOBAL REMOTE',
+            'HERMON, ME · UNITED STATES',
             'QUIET CONFIDENCE & EXTREME RESTRAINT',
           ]}
           speed={32}
@@ -517,11 +517,11 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                       <div>
                         <span className="text-xs text-neutral-500 block uppercase">SIGNAL / TELEPHONE</span>
                         <a
-                          href="tel:+41442114890"
+                          href="tel:+16504395756"
                           className="text-white hover:text-[#FF4F38] transition-colors text-base font-bold flex items-center gap-3 group mt-0.5"
-                          aria-label="Call +41 44 211 48 90"
+                          aria-label="Call +1 (650) 439-5756"
                         >
-                          <span>+41 44 211 48 90</span>
+                          <span>+1 (650) 439-5756</span>
                           <span className="text-xs px-3 py-1 rounded-full bg-white/10 group-hover:bg-[#FF4F38] group-hover:text-white transition-colors flex items-center gap-1.5 font-bold">
                             <Phone className="w-3 h-3 text-[#FF4F38] group-hover:text-white" />
                             <span>CALL NOW</span>
@@ -534,7 +534,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                       <MapPin className="w-4 h-4 text-[#FF4F38] mt-1 shrink-0" />
                       <div>
                         <span className="text-xs text-neutral-500 block uppercase">HUBS</span>
-                        <span className="text-neutral-300 block">LONDON · GLOBAL REMOTE</span>
+                        <span className="text-neutral-300 block">1005 Fieldstone Lane<br />Hermon, ME 04401<br />United States</span>
                       </div>
                     </div>
                   </div>
@@ -707,7 +707,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNavigate, onStartCli
                       </MagneticButton>
 
                       <a
-                        href="tel:+41442114890"
+                        href="tel:+16504395756"
                         className="px-6 py-4 rounded-full border border-white/20 hover:border-white hover:bg-white/10 text-white font-['Syne',sans-serif] font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2 shrink-0"
                         aria-label="Call studio directly"
                       >
