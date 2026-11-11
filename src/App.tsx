@@ -21,27 +21,27 @@ type CanonicalPageId = 'home' | 'web-development' | 'automation' | 'about-us';
 const pageSeo: Record<CanonicalPageId, { path: string; title: string; description: string }> = {
   home: {
     path: '/',
-    title: 'FRAV Automation | Web Design & AI Automation for U.S. Businesses',
+    title: 'FRAV Automation | Web Design & AI Automation for Businesses and Individuals',
     description:
       'FRAV Automation builds premium websites and practical AI automation for businesses across the United States. Remote-first web design, development, AI agents, and workflow systems.',
   },
   'web-development': {
     path: '/web',
-    title: 'Web Design & Development for U.S. Businesses | FRAV Automation',
+    title: 'Web Design & Development for Businesses | FRAV Automation',
     description:
-      'Custom website design and development for U.S. businesses. FRAV Automation creates premium, responsive websites and digital experiences, from strategy through launch.',
+      'Custom website design and development for  businesses. FRAV Automation creates premium, responsive websites and digital experiences, from strategy through launch.',
   },
   automation: {
     path: '/automation',
-    title: 'AI Automation for U.S. Businesses | FRAV Automation',
+    title: 'AI Automation for Businesses | FRAV Automation',
     description:
-      'FRAV Automation builds AI agents, workflow automation, and business integrations for U.S. teams—custom systems designed around real processes.',
+      'FRAV Automation builds AI agents, workflow automation, and business integrations for businesses—custom systems designed around real processes.',
   },
   'about-us': {
     path: '/about',
-    title: 'About FRAV Automation | U.S. Web + AI Partner',
+    title: 'About FRAV Automation | Web + AI Partner',
     description:
-      'FRAV Automation is a remote-first technology studio partnering with U.S. businesses on premium websites and practical AI automation, from digital experiences to workflow systems.',
+      'FRAV Automation is a remote-first technology studio partnering with individuals and businesses on premium websites and practical AI automation, from digital experiences to workflow systems.',
   },
 };
 
